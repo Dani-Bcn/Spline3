@@ -1,0 +1,67 @@
+import React, { useState } from 'react';
+import SceneAbout from '../scenes3d/SceneAbout';
+import { motion as m } from 'framer-motion'
+import imgWhatsApp from '/img/whatsapp.svg'
+import imgMin from '/img/minimizar.png'
+
+
+const About = () => {
+
+    const [nameApp, setNameApp] = useState()
+
+    /*    window.open("https://web.whatsapp.com/",
+         "location=no",
+         "WhatsApp",
+         "width=40, height=480",
+         "top=600,left=100");
+     */
+
+    const handleClick = ((e) => {
+        setNameApp(e.object.name)
+        console.log(e.object.name)
+    })
+
+    return (
+
+        <main className='about'>
+            <SceneAbout handleClick={handleClick} />
+            <m.div className='back-about'
+                animate={{
+                    x:[-2000,0],
+                    transition:{
+                        delay:1.5,
+                        ease:"backOut",
+                        duration:1
+                    }
+                }}
+            ></m.div>
+            <m.article
+                animate={{
+                    top: [850, -100],
+                    transition: {
+                       ease:"circOut",
+                        delay: 1.5,
+                        duration: 1.5
+                    }
+                }}
+            >
+                <h1>Click Me !!!</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quibusdam iure error dolorem itaque vel aliquam vero neque soluta cum minus.</p>
+                <img
+                    src={imgMin}
+                    alt="imgMin"
+                    style={{
+                        position: "absolute",
+                        width: 50,
+                        marginTop: -250,
+                        marginRight: -1050,
+                        cursor: "pointer",
+                    }}
+                />
+            </m.article>
+
+        </main>
+    );
+}
+
+export default About;
