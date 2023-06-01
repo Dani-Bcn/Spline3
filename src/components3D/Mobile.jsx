@@ -49,16 +49,14 @@ export function Mobile(props) {
       gsap.to(groupRef.current.position, {
         z: 3,
         x: -5,
-        y: 0,
-      
-        duration: 3,
-        
+        y: 0,      
+        duration: 3,        
       })
+
       gsap.to(groupRef.current.scale, {
         z: 0.5,
         x: 0.5,
-        y: 0.5,
-     
+        y: 0.5,     
         duration: 2,
         ease: "expo.in"
       })

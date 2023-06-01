@@ -3,6 +3,7 @@ import SceneAbout from '../scenes3d/SceneAbout';
 import { motion as m } from 'framer-motion'
 import imgWhatsApp from '/img/whatsapp.svg'
 import imgMin from '/img/minimizar.png'
+import Calendar from '../components3D/Calendar';
 
 
 const About = () => {
@@ -27,11 +28,11 @@ const About = () => {
             <SceneAbout handleClick={handleClick} />
             <m.div className='back-about'
                 animate={{
-                    x:[-2000,0],
-                    transition:{
-                        delay:1.5,
-                        ease:"backOut",
-                        duration:1
+                    x: [-2000, 0],
+                    transition: {
+                        delay: 1.5,
+                        ease: "backOut",
+                        duration: 1
                     }
                 }}
             ></m.div>
@@ -39,7 +40,7 @@ const About = () => {
                 animate={{
                     top: [850, -100],
                     transition: {
-                       ease:"circOut",
+                        ease: "circOut",
                         delay: 1.5,
                         duration: 1.5
                     }
@@ -59,6 +60,7 @@ const About = () => {
                     }}
                 />
             </m.article>
+            <Calendar />
 
         </main>
     );

@@ -73,9 +73,9 @@ export function Menu_home(props) {
   })
 
   useFrame(() => {
-    
+
     groupRef.current.position.y = 25 - data.range(0, 2 / 2) * 25.1
-    
+
     /*  data.range(0, 2 / 2) > 0.95 ?
        gsap.to(groupRef.current.position, {
          z: 0,

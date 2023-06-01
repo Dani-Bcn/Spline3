@@ -70,8 +70,7 @@ Canvas {
   align-items: center;
   justify-content: center;
   color: wheat;
-  z-index: -1; 
- 
+  z-index: -1;  
 }
 
 .about  h1 { 
@@ -103,5 +102,10 @@ Canvas {
   background-color: rgba(187, 173, 201, 0.801);
   z-index: -1;
  }
+
+ .ct-calendar{
+  position: absolute;
+ }
+
 
 

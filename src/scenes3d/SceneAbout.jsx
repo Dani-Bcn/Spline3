@@ -1,8 +1,9 @@
 import { Canvas } from '@react-three/fiber';
-import React, { Suspense, useEffect, useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Mobile } from '../components3D/Mobile';
-import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import { gsap } from 'gsap';
+import { Environment, PerspectiveCamera } from '@react-three/drei';
+
+
 
 const SceneAbout = (props) => {
 
@@ -27,6 +28,7 @@ const SceneAbout = (props) => {
             />
             <Suspense>
                 <Mobile handleClick={handleClick} />
+             
             </Suspense>
         </Canvas>
     );

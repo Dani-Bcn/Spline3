@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useGLTF, Text3D, useScroll, useCursor } from "@react-three/drei";
 import font1 from '../fonts/Bebas_Regular.json'
 import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
-export function Calendar_icon(props) {
 
+export function Calendar_icon(props) {
+ 
 
     const { nodes, materials } = useGLTF("/Calendar_icon");
    
@@ -15,7 +16,7 @@ export function Calendar_icon(props) {
     const year = hoy.slice(13, 15)
     const data = useScroll()
     const groupRef = useRef()
-    const [hover, setHover] = useState()
+    const [hover, setHover] = useState()   
 
     useFrame(() => {
         data.range(0, 2 / 2) > 0.92 ?
