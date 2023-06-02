@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Text, useGLTF, useCursor, useTexture, RoundedBox } from "@react-three/drei";
+import { Text, useGLTF, useCursor, useTexture, RoundedBox, Html } from "@react-three/drei";
 import { gsap } from "gsap";
 import img_whats from '/img/whatsapp.svg'
 import img_crome from '/img/crome.svg'
@@ -47,14 +47,14 @@ export function Mobile(props) {
         x: -0.5,
         z: 0.2,
         delay: 0,
-        duration: 3,
-        ease: "expo.out"
+        duration: 2,
+        ease: "expo.In"
       })
       gsap.to(groupRef.current.position, {
         z: 3,
         x: -5,
         y: 0,
-        duration: 3,
+        duration: 2,
       })
 
       gsap.to(groupRef.current.scale, {
@@ -89,24 +89,27 @@ export function Mobile(props) {
       z: 1,
     })
     handleClick(e)
+    gsap.to(groupRef.current.rotation, {
+      z: 1.565,
+      x: 0,
+      y: 0,
+      duration:1
+    })
     gsap.to(groupRef.current.position, {
       z: 0.5,
       x: -0.2,
       y: 0.85,
       duration: 0.5,
-      delay: 0.5
+      delay: 1,   
+      ease: "expo.out"
     })
-    gsap.to(groupRef.current.rotation, {
-      z: 1.565,
-      x: 0,
-      y: 0,
-    })
+ 
     gsap.to(groupRef.current.scale, {
       z: 1.5,
       x: 1.5,
       y: 1.5,
-      delay: 0.5,
-      duration: 2.5,
+      delay: 1,
+      duration: 1,
       ease: "expo.out"
     })
   })
@@ -123,6 +126,7 @@ export function Mobile(props) {
       onPointerOut={() => setHovered(false)}
       onClick={(e) => handleWhats(e)}
     >
+     
       <group
         castShadow
         ref={timeRef}

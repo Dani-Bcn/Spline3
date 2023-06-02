@@ -1,4 +1,4 @@
-import { Environment, RoundedBox, Scroll, ScrollControls, Text, Text3D } from '@react-three/drei';
+import { Html, Environment, RoundedBox, Scroll, ScrollControls, Text, Text3D } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React, { useState, useEffect } from 'react';
 import { motion as m } from 'framer-motion'
@@ -7,7 +7,9 @@ import font1 from '../fonts/Bebas_Regular.json'
 const Calendar = (props) => {
 
     const { activeCalendar } = props
-    console.log(props)
+
+    
+
     const currentDate = new Date()
     const currentDay = currentDate.getDate()
     let currentDayWeek = currentDate.getDay()
@@ -20,13 +22,12 @@ const Calendar = (props) => {
 
     const varianstActive = {
         open: {
-            y: 400,            
+            y: 400,
         },
         close: {
             y: -800
         }
     }
-
     return (
 
         <m.main className='ct-calendar'
@@ -35,8 +36,8 @@ const Calendar = (props) => {
                 activeCalendar ? "open" : "close"
             }
             transition={{
-                duration:1,
-                ease:"circOut"
+                duration: 1,
+                ease: "circOut"
             }}
         >
             <Canvas>
@@ -48,9 +49,24 @@ const Calendar = (props) => {
                     intensity={0.1}
                 />
                 <ScrollControls
-                pages={0}>
+                    pages={0}>
                     <Scroll>
+
                         <group>
+                            <Html
+                                position={[-5, 0, 0]}
+                            >
+                                <button
+                                  
+                                    style={{
+                                        fontSize: "2rem",
+                                        padding: 10,
+                                        borderRadius: 10,
+                                    }}
+                                >
+                                    Back
+                                </button>
+                            </Html>
                             {
                                 arrayIcons.map((e, i) => {
                                     posX = posX + 1.2
