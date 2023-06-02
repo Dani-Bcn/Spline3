@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SceneAbout from '../scenes3d/SceneAbout';
 import { motion as m } from 'framer-motion'
-import imgWhatsApp from '/img/whatsapp.svg'
 import imgMin from '/img/minimizar.png'
 import Calendar from '../components3D/Calendar';
 
@@ -21,11 +20,14 @@ const About = () => {
         setNameApp(e.object.name)
         console.log(e.object.name)
     })
-
+    const [activeCalendar, setActiveCalendar] = useState(false)
+    const handleClickCalendar=((e)=>{
+      setActiveCalendar(!activeCalendar)
+    })
     return (
 
         <main className='about'>
-            <SceneAbout handleClick={handleClick} />
+            <SceneAbout handleClick={handleClick} handleClickCalendar={handleClickCalendar}/>
             <m.div className='back-about'
                 animate={{
                     x: [-2000, 0],
@@ -60,7 +62,7 @@ const About = () => {
                     }}
                 />
             </m.article>
-            <Calendar />
+            <Calendar activeCalendar={activeCalendar}/> 
 
         </main>
     );

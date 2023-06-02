@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {  Text, useGLTF, useCursor, useTexture } from "@react-three/drei";
+import { Text, useGLTF, useCursor, useTexture, RoundedBox } from "@react-three/drei";
 import { gsap } from "gsap";
 import img_whats from '/img/whatsapp.svg'
 import img_crome from '/img/crome.svg'
@@ -11,6 +11,7 @@ export function Mobile(props) {
 
   const { nodes, materials } = useGLTF("/Iphone.gltf");
   const { handleClick } = props
+  const {handleClickCalendar} = props
   const [hovered, setHovered] = useState(false)
   const textureWhats = useTexture(img_whats)
   const textureCrome = useTexture(img_crome)
@@ -21,6 +22,9 @@ export function Mobile(props) {
   const iconsRef = useRef()
   const groupRef = useRef()
   const fecha = new Date()
+  const stringFecha = fecha.toDateString()
+  const Nameday = stringFecha.slice(0, 3)
+  const numberDay = stringFecha.slice(9, 10)
   useCursor(hovered)
 
   let hours = fecha.getHours()
@@ -49,14 +53,14 @@ export function Mobile(props) {
       gsap.to(groupRef.current.position, {
         z: 3,
         x: -5,
-        y: 0,      
-        duration: 3,        
+        y: 0,
+        duration: 3,
       })
 
       gsap.to(groupRef.current.scale, {
         z: 0.5,
         x: 0.5,
-        y: 0.5,     
+        y: 0.5,
         duration: 2,
         ease: "expo.in"
       })
@@ -64,14 +68,14 @@ export function Mobile(props) {
   }, [])
 
   const handleWhats = ((e) => {
-
-     gsap.to(timeRef.current.position, {
+    setHovered(false)
+    gsap.to(timeRef.current.position, {
       y: -5.2,
-      x:2
-    }) 
+      x: 2
+    })
     gsap.to(timeRef.current.rotation, {
       z: -1.56
-    }) 
+    })
     gsap.to(iconsRef.current.rotation, {
       z: -1.57,
     })
@@ -106,6 +110,8 @@ export function Mobile(props) {
       ease: "expo.out"
     })
   })
+  const [activeCalendar, setActiveCalendar] = useState(false)
+
 
   return (
     <group {...props} dispose={null}
@@ -113,6 +119,9 @@ export function Mobile(props) {
       scale={[0.4, 0.43, 0.3]}
       position={[5, 0, -5]}
       rotation={[1, 5, 0]}
+      onPointerOver={() => setHovered(true)}
+      onPointerOut={() => setHovered(false)}
+      onClick={(e) => handleWhats(e)}
     >
       <group
         castShadow
@@ -133,13 +142,10 @@ export function Mobile(props) {
       </group>
       <group
         ref={iconsRef}
-        position={[0, -2.1, 0]}
+        position={[0, -2.1, 0.1]}
       >
         <mesh
           name="whats"
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
-          onClick={(e) => handleWhats(e)}
           position={[-2.5, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
         >
@@ -150,8 +156,6 @@ export function Mobile(props) {
         </mesh>
         <mesh
           name="crome"
-          onPointerOver={() => setHovered(true)}
-          onClick={(e) => handleWhats(e)}
           position={[-1.25, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
         >
@@ -162,9 +166,6 @@ export function Mobile(props) {
         </mesh>
         <mesh
           name="galery"
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
-          onClick={(e) => handleWhats(e)}
           position={[0, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
         >
@@ -176,9 +177,6 @@ export function Mobile(props) {
         </mesh>
         <mesh
           name="calcu"
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
-          onClick={(e) => handleWhats(e)}
           position={[1.25, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
         >
@@ -190,17 +188,40 @@ export function Mobile(props) {
         </mesh>
         <mesh
           name="email"
-          onPointerOver={() => setHovered(true)}
-          onPointerOut={() => setHovered(false)}
-          onClick={(e) => handleWhats(e)}
           position={[2.5, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
         >
           <planeGeometry />
           <meshStandardMaterial
             map={textureEmail}
-
           />
+        </mesh>
+        <mesh
+          onPointerOver={() => setHovered(true)}
+          onPointerOut={() => setHovered(false)}
+          onClick={(e) => handleClickCalendar(e)}
+          name="calerdar"
+          position={[3.75, -2, 0.5]}
+          scale={[0.9, 0.85, 0.05]}
+        >
+          <RoundedBox
+            radius={0.1}
+          />
+          <meshStandardMaterial />
+          <Text
+            position={[0, 0.3, 1]}
+            color="blue"
+            scale={0.3}
+          >
+            {Nameday}
+          </Text>
+          <Text
+            position={[0, -0.2, 1]}
+            color="blue"
+            scale={0.5}
+          >
+            {numberDay}
+          </Text>
         </mesh>
       </group>
 

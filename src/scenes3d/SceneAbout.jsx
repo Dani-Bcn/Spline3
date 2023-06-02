@@ -10,6 +10,10 @@ const SceneAbout = (props) => {
     const cameraRef = useRef()
 
     const { handleClick } = props
+    const { handleClickCalendar } = props
+    console.log(props)
+
+
 
     return (
         <Canvas>
@@ -19,7 +23,7 @@ const SceneAbout = (props) => {
             <PerspectiveCamera
                 ref={cameraRef}
                 makeDefault
-                position={[0, 0, 50]}
+                position={[0, 0, 50]} 
                 fov={10}
             />
             <spotLight
@@ -27,8 +31,7 @@ const SceneAbout = (props) => {
                 position={[-50, 0, 100]}
             />
             <Suspense>
-                <Mobile handleClick={handleClick} />
-             
+                <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />             
             </Suspense>
         </Canvas>
     );

@@ -1,62 +1,110 @@
-import { Environment, RoundedBox, Scroll, ScrollControls, Text } from '@react-three/drei';
+import { Environment, RoundedBox, Scroll, ScrollControls, Text, Text3D } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React, { useState, useEffect } from 'react';
-import {motion as m }from 'framer-motion'
-const Calendar = () => {
+import { motion as m } from 'framer-motion'
+import font1 from '../fonts/Bebas_Regular.json'
 
+const Calendar = (props) => {
+
+    const { activeCalendar } = props
+    console.log(props)
     const currentDate = new Date()
     const currentDay = currentDate.getDate()
+    let currentDayWeek = currentDate.getDay()
+    currentDayWeek === 0 ? currentDayWeek = 7 : null
     const currentMonth = currentDate.getMonth()
     const currentYear = currentDate.getFullYear()
-    const date = new Date(currentYear, currentMonth - 1, 0)
-    const day = date.getDate()
-    let arrayDays = new Array(day).fill()
+    const arrayIcons = new Array(38).fill()
+    let posX = 0
+    let posY = 0
 
-    const IconsDays = (() => {
-        return (
-            <mesh
-                scale={0.5}>
-                <planeGeometry />
-                <meshStandardMaterial />
-            </mesh>
-        )
-    })
+    const varianstActive = {
+        open: {
+            y: 400,            
+        },
+        close: {
+            y: -800
+        }
+    }
 
     return (
 
-        <m.main className='ct-calendar' >          
-                <Canvas>
-                    <Environment
-                        preset='city'
-                    />
-                    <ScrollControls>
-                        <Scroll>
-                            <group>
-                                {
-                                    arrayDays.map((e, i) => {
-                                        const [position, setPosition] = useState(5)
-                                        const arrayPositionY = [0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -2, -2, -2, -2, -2, -2, -2, -3, -3, -3, -3, -3, -3, -3, -4, -4, -4, -4, -4, -4, -4]
-                                        const arrayPositionX = [1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7, 1, 2, 3, 4, 5, 6, 7]
-                                        return (
+        <m.main className='ct-calendar'
+            variants={varianstActive}
+            animate={
+                activeCalendar ? "open" : "close"
+            }
+            transition={{
+                duration:1,
+                ease:"circOut"
+            }}
+        >
+            <Canvas>
+                <Environment
+                    preset='city'
+                />
+                <spotLight
+                    position={[0, 50, 50]}
+                    intensity={0.1}
+                />
+                <ScrollControls
+                pages={0}>
+                    <Scroll>
+                        <group>
+                            {
+                                arrayIcons.map((e, i) => {
+                                    posX = posX + 1.2
+                                    if (i === 7 || i === 14 || i === 21 || i === 28 || i === 35) {
+                                        posX = 1.2
+                                        posY = posY - 1.1
+                                    }
+
+                                    return (
+                                        <group key={i}>
                                             <group
-                                                key={i}
-                                                position={[arrayPositionX[i] - 3, arrayPositionY[i] + 1, 0]}
-                                            >
-                                                <IconsDays />
-                                                <Text
-                                                    scale={0.2}
-                                                    color="rgb(250,100,100)"
+                                                position={[posX - 4, posY + 2.5, -0.1]}>
+                                                <mesh
+                                                    position={[0, 0, -0.1]}
+                                                    scale={[1, 1, 0.2]}
                                                 >
-                                                    {new Date(currentYear, currentMonth, i + 1).toDateString()}
-                                                </Text>
+                                                    <RoundedBox
+                                                        radius={0.2}
+                                                    >
+                                                        <meshStandardMaterial
+                                                            color={'rgb(100,140,200)'}
+                                                            roughness={0.5}
+                                                        /></RoundedBox>,
+                                                </mesh>
+                                                <Text3D
+                                                    font={font1}
+                                                    scale={[0.3, 0.3, 0.05]}
+                                                    curveSegments={5}
+                                                    bevelEnabled={true}
+                                                    bevelThickness={0.1}
+                                                    bevelSize={0.001}
+                                                    bevelOffset={0.05}
+                                                    bevelSegments={1}
+                                                    letterSpacing={0.1}
+
+                                                >
+                                                    {new Date(currentYear, currentMonth, i - 2).toDateString().slice(8, 10)}
+                                                    <meshStandardMaterial
+                                                        color={"rgb(250,200,50)"}
+                                                        roughness={0.2}
+
+
+                                                    />
+                                                </Text3D>
                                             </group>
-                                        )
-                                    })
-                                }
-                            </group>
-                        </Scroll>
-                    </ScrollControls>
-                </Canvas>       
+                                        </group>
+                                    )
+                                })
+                            }
+
+                        </group>
+                    </Scroll>
+                </ScrollControls>
+            </Canvas>
         </m.main>
     );
 }
