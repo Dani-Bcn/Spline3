@@ -30,9 +30,9 @@ const SceneAbout = (props) => {
                 intensity={1}
                 position={[-50, 0, 100]}
             />
-            <Suspense>
+       
                 <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />             
-            </Suspense>
+         
         </Canvas>
     );
 }

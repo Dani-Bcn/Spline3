@@ -31,8 +31,9 @@ const About = () => {
             <m.div className='back-about'
                 animate={{
                     x: [-2000, 0],
+                    opacity:[0,0,0,0.9],
                     transition: {
-                        delay: 1.5,
+                        delay: 2,
                         ease: "backOut",
                         duration: 1
                     }
@@ -40,10 +41,11 @@ const About = () => {
             ></m.div>
             <m.article
                 animate={{
+                    opacity:[0,1],
                     top: [850, -100],
                     transition: {
                         ease: "circOut",
-                        delay: 1.5,
+                        delay: 2,
                         duration: 1.5
                     }
                 }}
@@ -62,7 +64,7 @@ const About = () => {
                     }}
                 />
             </m.article>
-            <Calendar activeCalendar={activeCalendar}/> 
+            <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar}/> 
 
         </main>
     );

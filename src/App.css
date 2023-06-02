@@ -4,13 +4,13 @@
 }
 
 @font-face {
-  font-family:"Bruno";
+  font-family: "Bruno";
   src: url("./fonts/Bruno.ttf");
 
 }
 
 @font-face {
-  font-family:"Moguinne";
+  font-family: "Moguinne";
   src: url("./fonts/MoguineSerif_PERSONAL_USE_ONLY.otf");
 
 }
@@ -22,7 +22,7 @@ body {
 }
 
 Canvas {
-  overflow: hidden!important;
+  overflow: hidden !important;
   width: 100vw !important;
   height: 100vh !important;
   top: 0;
@@ -37,7 +37,7 @@ Canvas {
   background-color: rgb(24, 24, 24);
   z-index: 1;
 }
- 
+
 .about {
   position: relative;
   overflow: hidden;
@@ -50,6 +50,7 @@ Canvas {
   z-index: 1;
 
 }
+
 .about section {
   position: relative;
   display: flex;
@@ -60,58 +61,74 @@ Canvas {
   color: wheat;
 }
 
-.about article {  
+.about article {
   position: absolute;
   display: flex;
   flex-direction: column;
   padding: 100px 500px;
-  width:600px;
-  top:-100px;
+  width: 600px;
+  top: -100px;
   right: -100px;
   height: 100%;
   align-items: center;
   justify-content: center;
   color: wheat;
-  z-index: -1;  
+  z-index: -1;
 }
 
-.about  h1 { 
+.about h1 {
   width: 1100px;
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 100px;
-  font-family:"Bruno";
+  font-family: "Bruno";
   font-size: 8rem;
- }
- .about  p { 
+}
+
+.about p {
   width: 800px;
   height: 300px;
   display: flex;
   align-items: center;
   justify-content: start;
   margin-left: 100px;
-  font-family:"Moguine";
+  font-family: "Moguine";
   font-size: 3rem;
- }
- .back-about{
+}
+
+.back-about {
   position: absolute;
+
   left: 200px;
   width: 1700px;
   height: 100vh;
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
   background-color: rgba(187, 173, 201, 0.801);
   z-index: -1;
- }
+}
 
- .ct-calendar{
+.ct-calendar {
   width: 100vw;
   height: 100vh;
-  margin-top: -800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  margin: top 0px;
+  margin-left: 0px;
   overflow: hidden;
   position: absolute;
- }
+  backdrop-filter: blur(10px);
+  clip-path: circle(3.6% at 50% 50%);
+  background-color: rgb(221, 221, 221);
+}
 
-
-
+.ct-calendar section {
+  width: 600px;
+  height: 600px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: start;
+}

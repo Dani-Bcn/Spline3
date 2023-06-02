@@ -6,28 +6,42 @@ import font1 from '../fonts/Bebas_Regular.json'
 
 const Calendar = (props) => {
 
+    const { handleClickCalendar } = props
     const { activeCalendar } = props
-
-    
-
-    const currentDate = new Date()
-    const currentDay = currentDate.getDate()
-    let currentDayWeek = currentDate.getDay()
-    currentDayWeek === 0 ? currentDayWeek = 7 : null
-    const currentMonth = currentDate.getMonth()
-    const currentYear = currentDate.getFullYear()
-    const arrayIcons = new Array(38).fill()
-    let posX = 0
-    let posY = 0
+    const date = new Date()
+    const day = date.getDate()
+    const month = date.getMonth()
+    const year = date.getFullYear()
+    const monthDate = new Date(year, month, 1)
+    const nameCurrentMonth = date.toDateString().slice(4, 7)
+    const stringCurrentNameMonth = date.toDateString().slice(4, 7)
+    const dayOfWeek = monthDate.getDay()
+    const arrayIcons = new Array(42).fill()
 
     const varianstActive = {
         open: {
-            y: 400,
+            clipPath: ["circle(0.01% at 50% 50%)", "circle(0.01% at 50% 50%)", "circle(75% at 50% 50%)"],
+            opacity: [0, 1, 1, 1],
+            top: [0, 0],
+            left: [0, 0],
+            transition: {
+                duration: 1,
+                ease: "backOut"
+            }
         },
         close: {
-            y: -800
+            clipPath: "circle(1% at 50% 50%)",
+            opacity: [1, 0.9],
+            top: [0, 400],
+            left: [0, 300],
+            transition: {
+                duration: 0.5,
+                ease: "circIn"
+            }
         }
     }
+    let top = 0
+    let left = 400
     return (
 
         <m.main className='ct-calendar'
@@ -35,93 +49,46 @@ const Calendar = (props) => {
             animate={
                 activeCalendar ? "open" : "close"
             }
-            transition={{
-                duration: 1,
-                ease: "circOut"
-            }}
         >
-            <Canvas>
-                <Environment
-                    preset='city'
-                />
-                <spotLight
-                    position={[0, 50, 50]}
-                    intensity={0.1}
-                />
-                <ScrollControls
-                    pages={0}>
-                    <Scroll>
+            <section>
+                {
+                    arrayIcons.map((e, i) => {
+                        const numberDay = Number(new Date(year, month, i - dayOfWeek + 2 - 7).toDateString().slice(8, 10))
+                        const nameMonth = new Date(year, month, i - dayOfWeek + 2 - 7).toDateString().slice(4, 7)
+                        console.log(nameCurrentMonth, nameMonth)
+                        const [colorDay, setColorDay] = useState("grey")
+                        
+                        useEffect(() => {
+                            if (nameCurrentMonth === nameMonth) { setColorDay("black") }
+                        }, [])
 
-                        <group>
-                            <Html
-                                position={[-5, 0, 0]}
+                        return (
+
+                            <div key={i}
+                                style={{
+                                    margin: 2,
+                                    width: 75,
+                                    height: 75,
+                                    color: colorDay
+                                }}
                             >
-                                <button
-                                  
-                                    style={{
-                                        fontSize: "2rem",
-                                        padding: 10,
-                                        borderRadius: 10,
-                                    }}
-                                >
-                                    Back
-                                </button>
-                            </Html>
-                            {
-                                arrayIcons.map((e, i) => {
-                                    posX = posX + 1.2
-                                    if (i === 7 || i === 14 || i === 21 || i === 28 || i === 35) {
-                                        posX = 1.2
-                                        posY = posY - 1.1
-                                    }
 
-                                    return (
-                                        <group key={i}>
-                                            <group
-                                                position={[posX - 4, posY + 2.5, -0.1]}>
-                                                <mesh
-                                                    position={[0, 0, -0.1]}
-                                                    scale={[1, 1, 0.2]}
-                                                >
-                                                    <RoundedBox
-                                                        radius={0.2}
-                                                    >
-                                                        <meshStandardMaterial
-                                                            color={'rgb(100,140,200)'}
-                                                            roughness={0.5}
-                                                        /></RoundedBox>,
-                                                </mesh>
-                                                <Text3D
-                                                    font={font1}
-                                                    scale={[0.3, 0.3, 0.05]}
-                                                    curveSegments={5}
-                                                    bevelEnabled={true}
-                                                    bevelThickness={0.1}
-                                                    bevelSize={0.001}
-                                                    bevelOffset={0.05}
-                                                    bevelSegments={1}
-                                                    letterSpacing={0.1}
-
-                                                >
-                                                    {new Date(currentYear, currentMonth, i - 2).toDateString().slice(8, 10)}
-                                                    <meshStandardMaterial
-                                                        color={"rgb(250,200,50)"}
-                                                        roughness={0.2}
-
-
-                                                    />
-                                                </Text3D>
-                                            </group>
-                                        </group>
-                                    )
-                                })
-                            }
-
-                        </group>
-                    </Scroll>
-                </ScrollControls>
-            </Canvas>
+                                {
+                                    <div
+                                        style={{
+                                            color: colorDay
+                                        }}
+                                    >
+                                        <h2>  {numberDay}</h2>
+                                    </div>
+                                }
+                            </div>
+                        )
+                    })
+                }
+            </section>
         </m.main>
+
     );
 }
 

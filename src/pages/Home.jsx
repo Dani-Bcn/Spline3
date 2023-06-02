@@ -6,14 +6,13 @@ const Home = () => {
     return (
         <m.div className='home'
             animate={{              
-                opacity:[0,0,0,1],
-                transition: {
-                 
+                opacity:[0,1],
+                transition: {                 
                     duration: 3,
                 }
             }}
             exit={{
-                opacity:[1,1,1,0],           
+                opacity:[1,1],           
                 transition: {
                     delay:0.5,
                     duration: 2,                 

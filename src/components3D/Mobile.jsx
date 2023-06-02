@@ -21,6 +21,7 @@ export function Mobile(props) {
   const timeRef = useRef()
   const iconsRef = useRef()
   const groupRef = useRef()
+
   const fecha = new Date()
   const stringFecha = fecha.toDateString()
   const Nameday = stringFecha.slice(0, 3)
@@ -46,14 +47,15 @@ export function Mobile(props) {
         y: 0.55,
         x: -0.5,
         z: 0.2,
-        delay: 0,
+       delay:0,
         duration: 2,
-        ease: "expo.In"
+       
       })
       gsap.to(groupRef.current.position, {
         z: 3,
         x: -5,
         y: 0,
+        delay:0,
         duration: 2,
       })
 
@@ -61,8 +63,9 @@ export function Mobile(props) {
         z: 0.5,
         x: 0.5,
         y: 0.5,
+        delay:0,
         duration: 2,
-        ease: "expo.in"
+        
       })
     }
   }, [])
@@ -120,7 +123,7 @@ export function Mobile(props) {
     <group {...props} dispose={null}
       ref={groupRef}
       scale={[0.4, 0.43, 0.3]}
-      position={[5, 0, -5]}
+      position={[5, 0, 50]}
       rotation={[1, 5, 0]}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
@@ -166,6 +169,7 @@ export function Mobile(props) {
           <planeGeometry />
           <meshStandardMaterial
             map={textureCrome}
+            
           />
         </mesh>
         <mesh
@@ -214,14 +218,14 @@ export function Mobile(props) {
           <meshStandardMaterial />
           <Text
             position={[0, 0.3, 1]}
-            color="blue"
+            color="rgb(120,120,250)"
             scale={0.3}
           >
             {Nameday}
           </Text>
           <Text
             position={[0, -0.2, 1]}
-            color="blue"
+            color="rgb(120,120,250)"
             scale={0.5}
           >
             {numberDay}
