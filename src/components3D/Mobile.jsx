@@ -11,7 +11,7 @@ export function Mobile(props) {
 
   const { nodes, materials } = useGLTF("/Iphone.gltf");
   const { handleClick } = props
-  const {handleClickCalendar} = props
+  const { handleClickCalendar } = props
   const [hovered, setHovered] = useState(false)
   const textureWhats = useTexture(img_whats)
   const textureCrome = useTexture(img_crome)
@@ -47,15 +47,14 @@ export function Mobile(props) {
         y: 0.55,
         x: -0.5,
         z: 0.2,
-       delay:0,
+        delay: 0,
         duration: 2,
-       
       })
       gsap.to(groupRef.current.position, {
         z: 3,
         x: -5,
         y: 0,
-        delay:0,
+        delay: 0,
         duration: 2,
       })
 
@@ -63,14 +62,14 @@ export function Mobile(props) {
         z: 0.5,
         x: 0.5,
         y: 0.5,
-        delay:0,
+        delay: 0,
         duration: 2,
-        
       })
     }
   }, [])
-
+  const [activeBack, setActiveBack] = useState(false)
   const handleWhats = ((e) => {
+    setActiveBack(true)
     setHovered(false)
     gsap.to(timeRef.current.position, {
       y: -5.2,
@@ -96,17 +95,17 @@ export function Mobile(props) {
       z: 1.565,
       x: 0,
       y: 0,
-      duration:1
+      duration: 1
     })
     gsap.to(groupRef.current.position, {
       z: 0.5,
       x: -0.2,
       y: 0.85,
       duration: 0.5,
-      delay: 1,   
+      delay: 1,
       ease: "expo.out"
     })
- 
+
     gsap.to(groupRef.current.scale, {
       z: 1.5,
       x: 1.5,
@@ -118,7 +117,6 @@ export function Mobile(props) {
   })
   const [activeCalendar, setActiveCalendar] = useState(false)
 
-
   return (
     <group {...props} dispose={null}
       ref={groupRef}
@@ -129,7 +127,20 @@ export function Mobile(props) {
       onPointerOut={() => setHovered(false)}
       onClick={(e) => handleWhats(e)}
     >
-     
+      {
+        activeBack ?
+          <Text
+            rotation={[0, 0, -1.56]}
+            scale={0.5}
+            position={[-2.7, 4.5, 5]}
+          >
+            Back
+          </Text>
+          :
+          null
+        
+      }
+
       <group
         castShadow
         ref={timeRef}
@@ -145,6 +156,7 @@ export function Mobile(props) {
             <Text>
               {hours}:{minutes}
             </Text>
+
         }
       </group>
       <group
@@ -169,7 +181,6 @@ export function Mobile(props) {
           <planeGeometry />
           <meshStandardMaterial
             map={textureCrome}
-            
           />
         </mesh>
         <mesh
@@ -232,7 +243,6 @@ export function Mobile(props) {
           </Text>
         </mesh>
       </group>
-
       <group
         position={[0, 0.0284, 0]}
         rotation={[-Math.PI / 2, 0, 0]}

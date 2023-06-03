@@ -100,9 +100,9 @@ Canvas {
 
 .back-about {
   position: absolute;
-
   left: 200px;
   width: 1700px;
+  opacity: 0;
   height: 100vh;
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
   background-color: rgba(187, 173, 201, 0.801);
@@ -128,7 +128,24 @@ Canvas {
 .ct-calendar section {
   width: 600px;
   height: 600px;
+  top:75px;
   flex-wrap: wrap;
   display: flex;
   justify-content: start;
+  font-family: 'Carlito', sans-serif;
+}
+
+.ct-calendar button{
+  position: absolute;
+  left: -150px;
+  width: 100px;
+  height: 50px;
+  background-color: rgb(149, 184, 149);
+  cursor: pointer;
+}
+
+.weekDays{
+  position: absolute;
+  width: 100px;
+  height: 100px;
 }

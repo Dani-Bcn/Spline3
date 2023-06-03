@@ -59,14 +59,12 @@ const MainScene = () => {
                         <CustomCamera />
                         <RoundedBox
                             position={[-6, 0, 0]}
-                        ></RoundedBox>
-                        <Suspense>
+                        ></RoundedBox>                     
                             <Star1 />
-                            <Title3d />
-                        </Suspense>
+                            <Title3d />                       
                         <Calendar_icon />
                         <Card_a />
-                        <SceneMeteo />
+                        <SceneMeteo />                      
                         <Menu_home />
                         <Lamp lightProps={lightProps} />
                         <Dados_links />

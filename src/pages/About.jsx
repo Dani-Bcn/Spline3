@@ -21,17 +21,17 @@ const About = () => {
         console.log(e.object.name)
     })
     const [activeCalendar, setActiveCalendar] = useState(false)
-    const handleClickCalendar=((e)=>{
-      setActiveCalendar(!activeCalendar)
+    const handleClickCalendar = ((e) => {
+        setActiveCalendar(!activeCalendar)
     })
     return (
 
         <main className='about'>
-            <SceneAbout handleClick={handleClick} handleClickCalendar={handleClickCalendar}/>
+            <SceneAbout handleClick={handleClick} handleClickCalendar={handleClickCalendar} />
             <m.div className='back-about'
                 animate={{
                     x: [-2000, 0],
-                    opacity:[0,0,0,0.9],
+                    opacity: [0, 0, 0, 0.9],
                     transition: {
                         delay: 2,
                         ease: "backOut",
@@ -41,7 +41,7 @@ const About = () => {
             ></m.div>
             <m.article
                 animate={{
-                    opacity:[0,1],
+                    opacity: [0, 1],
                     top: [850, -100],
                     transition: {
                         ease: "circOut",
@@ -64,7 +64,9 @@ const About = () => {
                     }}
                 />
             </m.article>
-            <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar}/> 
+           
+                <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar} />
+            
 
         </main>
     );

@@ -11,27 +11,26 @@ const SceneAbout = (props) => {
 
     const { handleClick } = props
     const { handleClickCalendar } = props
+
     console.log(props)
-
-
 
     return (
         <Canvas>
             <Environment
                 preset='city'
-            />           
+            />
             <PerspectiveCamera
                 ref={cameraRef}
                 makeDefault
-                position={[0, 0, 50]} 
+                position={[0, 0, 50]}
                 fov={10}
             />
             <spotLight
                 intensity={1}
                 position={[-50, 0, 100]}
             />
-       
-                <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />             
+          
+                <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />
          
         </Canvas>
     );
