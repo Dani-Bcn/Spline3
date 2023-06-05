@@ -17,16 +17,24 @@ const About = () => {
 
     const handleClick = ((e) => {
         setNameApp(e.object.name)
-        console.log(e.object.name)
+       
     })
     const [activeCalendar, setActiveCalendar] = useState(false)
     const handleClickCalendar = ((e) => {
         setActiveCalendar(!activeCalendar)
     })
+    const [activeCalcu, setActiveCalcu] = useState(false)
+    const handleClickCalcu = ((e) => {
+        setActiveCalcu(!activeCalcu)
+    })
     return (
 
         <main className='about'>
-            <SceneAbout handleClick={handleClick} handleClickCalendar={handleClickCalendar} />
+            <SceneAbout 
+            handleClick={handleClick} 
+            handleClickCalendar={handleClickCalendar}
+            handleClickCalcu={handleClickCalcu}
+            />
             <m.div className='back-about'
                 animate={{
                     x: [-2000, 0],
@@ -65,7 +73,7 @@ const About = () => {
             </m.article>
 
             <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar} />
-            <Comp_calculator /> 
+            <Comp_calculator  handleClickCalcu={handleClickCalcu} activeCalcu={activeCalcu}/> 
 
 
         </main>

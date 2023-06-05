@@ -11,8 +11,7 @@ const SceneAbout = (props) => {
 
     const { handleClick } = props
     const { handleClickCalendar } = props
-
-    console.log(props)
+    const { handleClickCalcu } = props
 
     return (
         <Canvas>
@@ -29,7 +28,11 @@ const SceneAbout = (props) => {
                 intensity={1}
                 position={[-50, 0, 100]}
             />          
-                <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />         
+                <Mobile 
+                handleClick={handleClick} 
+                handleClickCalendar={handleClickCalendar} 
+                handleClickCalcu={handleClickCalcu}
+                />         
         </Canvas>
     );
 }

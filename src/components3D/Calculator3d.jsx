@@ -6,21 +6,17 @@ import font1 from '../fonts/Bebas_Regular.json'
 export function Calculator3d(props) {
   const { nodes, materials } = useGLTF("/Calculadora.gltf");
   const botonRef = useRef()
-
+  const {activeCalcu} = props
+  const {handleClickCalcu} = props
   const [num, setNum] = useState("")
   const [position, setPosition] = useState(1.5)
-
   const handleClick = ((e) => {
     setPosition(position => position - 0.333)
     console.log(num.length)
-    if (num.length > 8) {
-      
-    }
     console.log(position)
     if (e.object.name === "=") {
       setNum("" + eval(num))
       setPosition(num.length / num.length - 1)
-
     } else {
       setNum(oldArray => [...oldArray, e.object.name].join(""));
     }
@@ -31,14 +27,21 @@ export function Calculator3d(props) {
   })
 
   return (
-    <group>
+    <group
+      rotation={[0, 0, 0]}
+      scale={[1, 1, 1]}
+    >
       <Text3D
         position={[position, 1.97, 0]}
-        scale={[0.2, 0.2, 0.1]}
+        scale={[0.2, 0.2, 0.01]}
         font={font1}
         size={3}
       >
         {num}
+        <meshStandardMaterial
+          color={'rgb(150,180,200)'}
+          roughness={0.5}
+        />
       </Text3D>
       <group {...props} dispose={null}
         scale={0.002}
@@ -77,12 +80,8 @@ export function Calculator3d(props) {
         </group>
         <group name="Botón119" position={[622.96, -1126.67, 13]}>
           <group name="MoText" position={[18.35, -52.43, 13]}>
-            <group name="1" position={[-152.88, 0, 0]}
-
-            >
+            <group name="1" position={[-152.88, 0, 0]}>
               <mesh
-
-
                 castShadow
                 receiveShadow
                 geometry={nodes["=_1"].geometry}
@@ -609,71 +608,7 @@ export function Calculator3d(props) {
             />
           </mesh>
         </group>
-        <group name="Botón12" position={[202.14, 552.45, 13]}>
-          <group name="MoText_16" position={[14.35, -55.43, 13]}>
-            <group name="1_15" position={[-149.27, 0, 0]}>
-              <mesh
-                name="%_1"
-                castShadow
-                receiveShadow
-                geometry={nodes["%_1"].geometry}
-                material={nodes["%_1"].material}
-              >
-                <meshStandardMaterial
-                  color="rgb(150,200,250)"
-                  roughness={8}
-                />
-              </mesh>
-            </group>
-          </group>
-          <mesh
-            onClick={(e) => handleClick(e)}
-            name="%"
-            castShadow
-            receiveShadow
-            geometry={nodes.Extrusión_17.geometry}
-            material={nodes.Extrusión_17.material}
-            position={[17.65, 79.43, -13]}
-          >
-            <meshStandardMaterial
-              color="rgb(275,200,150)"
-              roughness={8}
-            />
-          </mesh>
-        </group>
-        <group name="Botón11" position={[-237.79, 552.45, 13]}>
-          <group name="MoText_17" position={[2.35, -79.43, 13]}>
-            <group name="1_16" position={[-152.88, 0, 0]}>
-              <mesh
-                name="<_1"
-                castShadow
-                receiveShadow
-                geometry={nodes["<_1"].geometry}
-                material={nodes["<_1"].material}
-              >
-                <meshStandardMaterial
-                  color="rgb(150,200,250)"
-                  roughness={8}
-                />
-              </mesh>
-            </group>
-          </group>
-          <mesh
-            onClick={(e) => handleClick(e)}
-            name="<"
-            castShadow
-            receiveShadow
-            geometry={nodes.Extrusión_18.geometry}
-            material={nodes.Extrusión_18.material}
-            position={[17.65, 79.43, -13]}
-          >
-            <meshStandardMaterial
-              color="rgb(275,200,150)"
-              roughness={8}
-            />
-          </mesh>
-        </group>
-        <group name="Botón1" position={[-658.49, 552.45, 13]}>
+        <group name="Botón1" position={[195, 552.45, 13]}>
           <group name="MoText_18" position={[2.35, -55.43, 13]}>
             <group name="1_17" position={[-104.75, 0, 0]}>
               <mesh
@@ -691,6 +626,7 @@ export function Calculator3d(props) {
             </group>
           </group>
           <mesh
+            scale={[1, 1, 1]}
             onClick={(e) => handleClick(e)}
             name="c"
             castShadow
@@ -705,9 +641,25 @@ export function Calculator3d(props) {
             />
           </mesh>
         </group>
+        <group name="Botón1" position={[-650, 552.45, 13]}>
+          <mesh
+          onClick={(e)=>handleClickCalcu(e)}
+            scale={[1, 1, 1]}          
+            name="off"
+            castShadow
+            receiveShadow
+            geometry={nodes.Extrusión_19.geometry}
+            material={nodes.Extrusión_19.material}
+            position={[17.65, 79.43, -13]}
+          >
+            <meshStandardMaterial
+              color="rgb(275,200,150)"
+              roughness={8}
+            />
+          </mesh>
+        </group>
         <group name="Botón120" position={[-6.89, 1055.11, 13]}>
           <mesh
-
             castShadow
             receiveShadow
             geometry={nodes.Extrusión_20.geometry}
@@ -733,7 +685,6 @@ export function Calculator3d(props) {
             color="rgb(230,230,150)"
             roughness={8}
           />
-
         </mesh>
       </group>
     </group>

@@ -6,13 +6,12 @@ import img_crome from '/img/crome.svg'
 import img_galery from '/img/galery.svg'
 import img_calcu from '/img/calcu.svg'
 import img_email from '/img/email.svg'
-import { useNavigate } from "react-router-dom";
 
 export function Mobile(props) {
-  const navigate = useNavigate()
   const { nodes, materials } = useGLTF("/Iphone.gltf");
   const { handleClick } = props
   const { handleClickCalendar } = props
+  const {handleClickCalcu} = props
   const [hovered, setHovered] = useState(false)
   const textureWhats = useTexture(img_whats)
   const textureCrome = useTexture(img_crome)
@@ -23,7 +22,6 @@ export function Mobile(props) {
   const iconsRef = useRef()
   const groupRef = useRef()
   const calendarRef = useRef()
-
   const fecha = new Date()
   const stringFecha = fecha.toDateString()
   const Nameday = stringFecha.slice(0, 3)
@@ -120,7 +118,7 @@ export function Mobile(props) {
       ease: "expo.out"
     })
   })
-  const [activeCalendar, setActiveCalendar] = useState(false)
+
 
   return (
     <group {...props} dispose={null}
@@ -202,7 +200,7 @@ export function Mobile(props) {
           ref={calendarRef}
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
-          onClick={(e) => handleClickCalendar(e)}
+          onClick={(e) => handleClickCalcu(e)}
           name="calcu"
           position={[1.25, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
