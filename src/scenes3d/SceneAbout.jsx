@@ -28,10 +28,8 @@ const SceneAbout = (props) => {
             <spotLight
                 intensity={1}
                 position={[-50, 0, 100]}
-            />
-          
-                <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />
-         
+            />          
+                <Mobile handleClick={handleClick} handleClickCalendar={handleClickCalendar} />         
         </Canvas>
     );
 }

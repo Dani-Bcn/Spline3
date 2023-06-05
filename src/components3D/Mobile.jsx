@@ -6,9 +6,10 @@ import img_crome from '/img/crome.svg'
 import img_galery from '/img/galery.svg'
 import img_calcu from '/img/calcu.svg'
 import img_email from '/img/email.svg'
+import { useNavigate } from "react-router-dom";
 
 export function Mobile(props) {
-
+  const navigate = useNavigate()
   const { nodes, materials } = useGLTF("/Iphone.gltf");
   const { handleClick } = props
   const { handleClickCalendar } = props
@@ -21,6 +22,7 @@ export function Mobile(props) {
   const timeRef = useRef()
   const iconsRef = useRef()
   const groupRef = useRef()
+  const calendarRef = useRef()
 
   const fecha = new Date()
   const stringFecha = fecha.toDateString()
@@ -44,9 +46,9 @@ export function Mobile(props) {
   useEffect(() => {
     if (groupRef.current) {
       gsap.to(groupRef.current.rotation, {
-        y: 0.55,
-        x: -0.5,
-        z: 0.2,
+        y: 0.,
+        x: -0,
+        z: 0,
         delay: 0,
         duration: 2,
       })
@@ -57,7 +59,6 @@ export function Mobile(props) {
         delay: 0,
         duration: 2,
       })
-
       gsap.to(groupRef.current.scale, {
         z: 0.5,
         x: 0.5,
@@ -71,6 +72,11 @@ export function Mobile(props) {
   const handleWhats = ((e) => {
     setActiveBack(true)
     setHovered(false)
+    gsap.to(calendarRef.current.position, {
+      x: -3.75,
+      y: -2,
+      z: 0.5
+    })
     gsap.to(timeRef.current.position, {
       y: -5.2,
       x: 2
@@ -105,7 +111,6 @@ export function Mobile(props) {
       delay: 1,
       ease: "expo.out"
     })
-
     gsap.to(groupRef.current.scale, {
       z: 1.5,
       x: 1.5,
@@ -130,6 +135,7 @@ export function Mobile(props) {
       {
         activeBack ?
           <Text
+            onClick={() => { func }}
             rotation={[0, 0, -1.56]}
             scale={0.5}
             position={[-2.7, 4.5, 5]}
@@ -138,7 +144,6 @@ export function Mobile(props) {
           </Text>
           :
           null
-        
       }
 
       <group
@@ -146,7 +151,7 @@ export function Mobile(props) {
         ref={timeRef}
         name="letters"
         scale={[0.3, 0.3, 0]}
-        position={[-2.2, 6.7, 0.5]}
+        position={[-2.2, 6.5, 0.5]}
       >
         {
           passTime ?
@@ -156,7 +161,6 @@ export function Mobile(props) {
             <Text>
               {hours}:{minutes}
             </Text>
-
         }
       </group>
       <group
@@ -195,6 +199,10 @@ export function Mobile(props) {
           />
         </mesh>
         <mesh
+          ref={calendarRef}
+          onPointerOver={() => setHovered(true)}
+          onPointerOut={() => setHovered(false)}
+          onClick={(e) => handleClickCalendar(e)}
           name="calcu"
           position={[1.25, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
@@ -216,11 +224,12 @@ export function Mobile(props) {
           />
         </mesh>
         <mesh
+          ref={calendarRef}
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
           onClick={(e) => handleClickCalendar(e)}
           name="calerdar"
-          position={[3.75, -2, 0.5]}
+          position={[-2.5, -1, 0.5]}
           scale={[0.9, 0.85, 0.05]}
         >
           <RoundedBox

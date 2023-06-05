@@ -51,17 +51,17 @@ Canvas {
 
 }
 
-.about section {
+.about>section {
   position: relative;
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: center;
-  color: wheat;
+  color: rgb(189, 179, 245);
 }
 
-.about article {
+.article-about {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -110,42 +110,67 @@ Canvas {
 }
 
 .ct-calendar {
+  position: absolute;
   width: 100vw;
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  opacity: 0;
-  margin: top 0px;
-  margin-left: 0px;
-  overflow: hidden;
-  position: absolute;
-  backdrop-filter: blur(10px);
-  clip-path: circle(3.6% at 50% 50%);
-  background-color: rgb(221, 221, 221);
+  align-items: center;
+  background-color: rgb(207, 207, 207);
+  font-weight: 100px;
 }
 
-.ct-calendar section {
-  width: 600px;
-  height: 600px;
-  top:75px;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: start;
-  font-family: 'Carlito', sans-serif;
-}
-
-.ct-calendar button{
+.ct-calendar button {
   position: absolute;
-  left: -150px;
-  width: 100px;
+  top:575px;
+  left: -200px;
+  width: 75px;
   height: 50px;
-  background-color: rgb(149, 184, 149);
   cursor: pointer;
 }
 
-.weekDays{
+.section-calendar {
   position: absolute;
-  width: 100px;
+  width: 70%;
+  height: 80%;
+}
+
+.days-calendar {
+  position: absolute;
+  top: -15px;
+  width: 100%;
+  display: flex;
+  font-family: 'Yantramanav', sans-serif;
+  justify-content: space-between;
+}
+
+.days-calendar h2 {
+  width: 175px;
+  text-align: center;
+}
+
+.nums-calendar {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nums-calendar h2 {
+  width: 150px;
   height: 100px;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ct-calculator{
+  position: absolute;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 0, 0, 0.075);
+  backdrop-filter: blur(10px);
 }

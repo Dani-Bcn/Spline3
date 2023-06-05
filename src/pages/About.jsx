@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import SceneAbout from '../scenes3d/SceneAbout';
 import { motion as m } from 'framer-motion'
 import imgMin from '/img/minimizar.png'
-import Calendar from '../components3D/Calendar';
-
-
+import Calendar from '../components/Calendar';
+import Comp_calculator from '../components/Comp_calculator';
 const About = () => {
 
     const [nameApp, setNameApp] = useState()
@@ -39,7 +38,7 @@ const About = () => {
                     }
                 }}
             ></m.div>
-            <m.article
+            <m.article className='article-about'
                 animate={{
                     opacity: [0, 1],
                     top: [850, -100],
@@ -64,9 +63,10 @@ const About = () => {
                     }}
                 />
             </m.article>
-           
-                <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar} />
-            
+
+            <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar} />
+            <Comp_calculator /> 
+
 
         </main>
     );
