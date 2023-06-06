@@ -8,19 +8,18 @@ const Comp_calculator = (props) => {
 
     const { handleClickCalcu } = props
     const { activeCalcu } = props
-    console.log(handleClickCalcu)
-    console.log(activeCalcu)
+   
 
     const varianstCalcu = {
         open: {
-            y: 0
+            y: 900,
+            opacity:[0,1]
         },
         close: {
-            y: -900
+            y: -900,
+            opacity:[1,0,0,0]
         }
     }
-
-
 
     return (
         <m.div className='ct-calculator'
@@ -29,7 +28,8 @@ const Comp_calculator = (props) => {
                 activeCalcu ? "open" : "close"
             }
             transition={{
-                duration: 0.5
+                duration: 0.5,
+                ease:"easeIn"
             }}
         >
             <Canvas

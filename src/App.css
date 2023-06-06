@@ -169,8 +169,24 @@ Canvas {
 .ct-calculator{
   overflow: hidden;
   position: absolute;
+  top:-900px;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 0, 0, 0.075);
+  background-color: rgb(236, 117, 117);
   backdrop-filter: blur(10px);
+}
+
+.screen{
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  top:-260px;
+  left: -167px;
+  font-size: 3rem;
+  width: 310px;
+  height:70px;
+  position: absolute;
+  color:rgb(136, 81, 17);
+  font-family: 'Yantramanav', sans-serif; 
 }

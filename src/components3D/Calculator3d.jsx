@@ -1,24 +1,45 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Text3D, useGLTF } from "@react-three/drei";
-import font1 from '../fonts/Bebas_Regular.json'
-
+import { Text3D, useGLTF, useCursor, Html } from "@react-three/drei";
+import font1 from '../fonts/Bruno.json'
 
 export function Calculator3d(props) {
   const { nodes, materials } = useGLTF("/Calculadora.gltf");
   const botonRef = useRef()
-  const {activeCalcu} = props
-  const {handleClickCalcu} = props
+  const { activeCalcu } = props
+  const { handleClickCalcu } = props
   const [num, setNum] = useState("")
   const [position, setPosition] = useState(1.5)
+  const [activeCursor, setActiveCursor] = useState(false)
+  const [activeInput, setActiveInput] = useState(true)
+  const reg = /^[0-9]+$/
+  useCursor(activeCursor)
+
   const handleClick = ((e) => {
+
+    const onlyNums = ((value) => {
+      const regex = /^[0-9]+$/
+      return regex.test(value)
+    })
+
+    console.log(onlyNums(e.object.name))
+
+    if (e.object.name === "off") {
+
+      handleClickCalcu(),
+        setNum("")
+      setPosition(1.5)
+      return
+    }
     setPosition(position => position - 0.333)
-    console.log(num.length)
-    console.log(position)
+
+    num.length > 6 && onlyNums ? setActiveInput(false) : setActiveInput(true)
+    console.log(activeInput)
     if (e.object.name === "=") {
       setNum("" + eval(num))
-      setPosition(num.length / num.length - 1)
+      setPosition()
     } else {
-      setNum(oldArray => [...oldArray, e.object.name].join(""));
+
+      activeInput ? setNum(oldArray => [...oldArray, e.object.name].join("")) : null
     }
     if (e.object.name === "c") {
       setNum("")
@@ -32,21 +53,24 @@ export function Calculator3d(props) {
       scale={[1, 1, 1]}
     >
       <Text3D
-        position={[position, 1.97, 0]}
-        scale={[0.2, 0.2, 0.01]}
+      position={[-1.6,1.05,0]}
         font={font1}
-        size={3}
+        scale={[0.22, 0.35, 0.5]}
       >
-        {num}
+        Off
         <meshStandardMaterial
-          color={'rgb(150,180,200)'}
-          roughness={0.5}
-        />
+                  color="rgb(150,200,250)"
+                  roughness={8}
+                />
       </Text3D>
+      <Html>
+        <div className="screen">
+          <h2> {num}</h2>
+        </div>
+      </Html>
       <group {...props} dispose={null}
         scale={0.002}
       >
-
         <group position={[-658.49, 133.54, 13]}>
           <mesh
             castShadow
@@ -60,10 +84,11 @@ export function Calculator3d(props) {
               color="rgb(150,200,250)"
               roughness={0.01}
             />
-
           </mesh>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={1}
             castShadow
             receiveShadow
@@ -73,9 +98,7 @@ export function Calculator3d(props) {
           >
             <meshStandardMaterial
               color="rgb(275,200,150)"
-
             />
-
           </mesh>
         </group>
         <group name="Botón119" position={[622.96, -1126.67, 13]}>
@@ -91,12 +114,13 @@ export function Calculator3d(props) {
                   color="rgb(150,200,250)"
                   roughness={8}
                 />
-
               </mesh>
             </group>
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name="="
             castShadow
             receiveShadow
@@ -108,7 +132,6 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group name="Botón118" position={[202.14, -1126.67, 13]}>
@@ -124,13 +147,13 @@ export function Calculator3d(props) {
                   color="rgb(150,200,250)"
                   roughness={8}
                 />
-
               </mesh>
             </group>
           </group>
           <mesh
-
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={","}
             castShadow
             receiveShadow
@@ -142,11 +165,9 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group
-
           name="Botón117" position={[-237.79, -1126.67, 13]}>
           <group name="MoText_2" position={[24.35, -79.43, 13]}>
             <group name="1_2" position={[-120.43, 0, 0]}>
@@ -161,12 +182,13 @@ export function Calculator3d(props) {
                   color="rgb(150,200,250)"
                   roughness={8}
                 />
-
               </mesh>
             </group>
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={0}
             castShadow
             receiveShadow
@@ -178,7 +200,6 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group name="Botón116" position={[-658.49, -1126.67, 13]}>
@@ -195,12 +216,13 @@ export function Calculator3d(props) {
                   color="rgb(150,200,250)"
                   roughness={8}
                 />
-
               </mesh>
             </group>
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name="."
             castShadow
             receiveShadow
@@ -212,7 +234,6 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group name="Botón115" position={[-658.49, -708.6, 13]}>
@@ -229,12 +250,13 @@ export function Calculator3d(props) {
                   color="rgb(150,200,250)"
                   roughness={8}
                 />
-
               </mesh>
             </group>
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={7}
             castShadow
             receiveShadow
@@ -246,7 +268,6 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group name="Botón114" position={[-237.79, -708.6, 13]}>
@@ -263,12 +284,13 @@ export function Calculator3d(props) {
                   color="rgb(150,200,250)"
                   roughness={8}
                 />
-
               </mesh>
             </group>
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={8}
             castShadow
             receiveShadow
@@ -280,7 +302,6 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group name="Botón113" position={[202.14, -708.6, 13]}>
@@ -302,6 +323,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={9}
             castShadow
             receiveShadow
@@ -313,7 +336,6 @@ export function Calculator3d(props) {
               color="rgb(275,200,150)"
               roughness={8}
             />
-
           </mesh>
         </group>
         <group name="Botón112" position={[622.96, -708.6, 13]}>
@@ -339,6 +361,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={"/"}
             castShadow
             receiveShadow
@@ -371,6 +395,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={"*"}
             castShadow
             receiveShadow
@@ -403,6 +429,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={6}
             castShadow
             receiveShadow
@@ -435,6 +463,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={5}
             castShadow
             receiveShadow
@@ -467,6 +497,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={4}
             castShadow
             receiveShadow
@@ -499,6 +531,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={2}
             castShadow
             receiveShadow
@@ -531,6 +565,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={3}
             castShadow
             receiveShadow
@@ -563,6 +599,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name={"-"}
             castShadow
             receiveShadow
@@ -595,6 +633,8 @@ export function Calculator3d(props) {
           </group>
           <mesh
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name="+"
             castShadow
             receiveShadow
@@ -628,6 +668,8 @@ export function Calculator3d(props) {
           <mesh
             scale={[1, 1, 1]}
             onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
             name="c"
             castShadow
             receiveShadow
@@ -643,8 +685,10 @@ export function Calculator3d(props) {
         </group>
         <group name="Botón1" position={[-650, 552.45, 13]}>
           <mesh
-          onClick={(e)=>handleClickCalcu(e)}
-            scale={[1, 1, 1]}          
+            onClick={(e) => handleClick(e)}
+            onPointerOver={() => setActiveCursor(true)}
+            onPointerOut={() => setActiveCursor(false)}
+            scale={[1, 1, 1]}
             name="off"
             castShadow
             receiveShadow
