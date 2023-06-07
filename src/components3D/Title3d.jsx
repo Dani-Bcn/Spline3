@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { useGLTF, useScroll, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-import img1_normal from '/img/img_normal.jpg'
+
 import { gsap } from "gsap";
 
 export function Title3d(props) {
   const { nodes, materials } = useGLTF("/NombreDani.gltf");
-  const texture_normal = useTexture(img1_normal)
+
   const groupRef = useRef()
   const dRef = useRef()
   const pRef = useRef()
@@ -71,7 +71,7 @@ export function Title3d(props) {
           geometry={nodes.D.geometry}
         >
           <meshStandardMaterial
-            roughnessMap={texture_normal}
+        
             color={"rgb(250,200,120)"}
             metalness={0.3}
           />
@@ -97,7 +97,7 @@ export function Title3d(props) {
           >
             <meshStandardMaterial
               transparent
-              roughnessMap={texture_normal}
+      
               color={"rgb(200,200,250)"}
               metalness={0.3}
             />
@@ -109,7 +109,7 @@ export function Title3d(props) {
           >
             <meshStandardMaterial
               transparent
-              roughnessMap={texture_normal}
+       
               color={"rgb(200,200,250)"}
               metalness={0.3}
             />
@@ -124,7 +124,7 @@ export function Title3d(props) {
           material={nodes.P.material}
         >
           <meshStandardMaterial
-            roughnessMap={texture_normal}
+  
             color={"rgb(250,200,120)"}
             metalness={0.3}
           />
@@ -140,7 +140,7 @@ export function Title3d(props) {
           >
             <meshStandardMaterial
               transparent
-              roughnessMap={texture_normal}
+ 
               color={"rgb(200,200,250)"}
               metalness={0.3}
             />
@@ -153,7 +153,7 @@ export function Title3d(props) {
           >
             <meshStandardMaterial
               transparent
-              roughnessMap={texture_normal}
+     
               color={"rgb(200,200,250)"}
               metalness={0.3}
             />
@@ -166,7 +166,7 @@ export function Title3d(props) {
           >
             <meshStandardMaterial
               transparent
-              roughnessMap={texture_normal}
+
               color={"rgb(200,200,250)"}
               metalness={0.3}
             />
@@ -179,7 +179,7 @@ export function Title3d(props) {
           >
             <meshStandardMaterial
               transparent
-              roughnessMap={texture_normal}
+     
               color={"rgb(200,200,250)"}
               metalness={0.3}
             />

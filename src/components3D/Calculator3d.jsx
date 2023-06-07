@@ -16,13 +16,6 @@ export function Calculator3d(props) {
   useCursor(activeCursor)
 
   const handleClick = ((e) => {
-/* 
-    const onlyNums = ((value) => {
-      const coco = "coco"
-      return coco === (value)
-    })
-
-    console.log(onlyNums("coc")) */
 
     if (e.object.name === "off") {
 

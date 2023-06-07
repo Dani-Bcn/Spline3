@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { MeshReflectorMaterial, useGLTF, useScroll, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import img1 from '/img/Star3.png'
-import img1_normal from '/img/img_normal.jpg'
+
 import { gsap } from "gsap";
 
 export function Star1(props) {
@@ -11,7 +11,7 @@ export function Star1(props) {
   const groupRef = useRef()
   const groupRef2 = useRef()
   const textureStar3 = useTexture(img1)
-  const textureStar3_normal = useTexture(img1_normal)
+
   const data = useScroll()
   useFrame((state,delta)=>{
     if (data.range(0, 2 / 2) < 0.1) {
@@ -43,7 +43,7 @@ export function Star1(props) {
         <meshStandardMaterial
           map={textureStar3}
         roughness={2.5}
-          roughnessMap={textureStar3_normal}
+        
           color={"rgb(175,175,200)"}      
         />
       </mesh>
@@ -62,7 +62,7 @@ export function Star1(props) {
          mixBlur={10}      
          roughness={2}
          resolution={2040}
-         roughnessMap={textureStar3_normal}
+        
         color={"rgb(230,220,75)"}
        />
      </mesh>

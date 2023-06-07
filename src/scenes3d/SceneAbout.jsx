@@ -25,16 +25,16 @@ const SceneAbout = (props) => {
             />
             <spotLight
                 intensity={1}
-                position={[-50, 0, 100]}
+                position={[-50, 0, 100]} 
             /> 
-            <OrbitControls/>
+          
 
-            <Mobile_prueba/>         
-               {/*  <Mobile 
+            <Mobile_prueba         
+   
                 handleClick={handleClick} 
                 handleClickCalendar={handleClickCalendar} 
                 handleClickCalcu={handleClickCalcu}
-                />      */}    
+                >    </Mobile_prueba>   
         </Canvas>
     );
 }

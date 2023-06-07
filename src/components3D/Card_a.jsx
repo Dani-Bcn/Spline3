@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
-import { useGLTF, useTexture, MeshReflectorMaterial, useCursor } from "@react-three/drei";
-import img1 from '/img/img_normal.jpg'
-import img2 from '/img/face_about.jpg'
+import { useGLTF, MeshReflectorMaterial, useCursor } from "@react-three/drei";
+
+
 import { gsap } from "gsap";
 
 export function Card_a(props) {
 
     const { nodes, materials } = useGLTF("/Card.gltf");
-    const texture_normal = useTexture(img1)
-    const texture_face = useTexture(img2)
+  
+  
     const [hover, setHover] = useState(false)
     const aboutRef = useRef()
     const photoRef = useRef()
@@ -59,9 +59,9 @@ export function Card_a(props) {
                             mixBlur={8}
                             metalness={0.25}
                             color={"rgb(170,120,120)"}
-                            roughnessMap={texture_normal}
+                       
                             roughness={0.9}
-                            metalnessMap={texture_normal}
+                      
                         />
                     </mesh>
                     <mesh
@@ -77,9 +77,9 @@ export function Card_a(props) {
                             mixBlur={5}
                             metalness={0.3}
                             color={"rgb(150,150,255)"}
-                            roughnessMap={texture_normal}
+                       
                             roughness={1.2}
-                            metalnessMap={texture_normal}
+            
                         />
                     </mesh>
                 </group>
@@ -99,9 +99,9 @@ export function Card_a(props) {
                         mixBlur={5}
                         metalness={0.2}
                         color={"rgb(170,120,120)"}
-                        roughnessMap={texture_normal}
+          
                         roughness={1.2}
-                        metalnessMap={texture_normal}
+           
                     />
                 </mesh>
                 <mesh
@@ -112,13 +112,11 @@ export function Card_a(props) {
                     <boxGeometry />
                     <MeshReflectorMaterial
                         blur={[1000, 2500]}
-                        map={texture_face}
                         metalness={0.2}
                         color={"rgb(170,120,120)"}
-                        roughnessMap={texture_face}
                         emissiveIntensity={9}
                         roughness={1.2}
-                        metalnessMap={texture_normal}
+                
                     />
                 </mesh>
             </group>

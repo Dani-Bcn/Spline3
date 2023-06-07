@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import SceneAbout from '../scenes3d/SceneAbout';
 import { motion as m } from 'framer-motion'
-import imgMin from '/img/minimizar.png'
 import Calendar from '../components/Calendar';
 import Comp_calculator from '../components/Comp_calculator';
 const About = () => {
@@ -63,17 +62,7 @@ const About = () => {
             >
                 <h1>Click Me !!!</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quibusdam iure error dolorem itaque vel aliquam vero neque soluta cum minus.</p>
-                <img
-                    src={imgMin}
-                    alt="imgMin"
-                    style={{
-                        position: "absolute",
-                        width: 50,
-                        marginTop: -250,
-                        marginRight: -1050,
-                        cursor: "pointer",
-                    }}
-                />
+               
             </m.article>
          
             <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar} />
