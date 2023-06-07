@@ -1,27 +1,32 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Text, useGLTF, useCursor, useTexture, RoundedBox, Html } from "@react-three/drei";
+import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import img_whats from '/img/whatsapp.svg'
 import img_crome from '/img/crome.svg'
 import img_galery from '/img/galery.svg'
 import img_calcu from '/img/calcu.svg'
 import img_email from '/img/email.svg'
+import img_home from '/img/Home.svg'
 
 export function Mobile(props) {
+  const navigate = useNavigate()
   const { nodes, materials } = useGLTF("/Iphone.gltf");
   const { handleClick } = props
   const { handleClickCalendar } = props
-  const {handleClickCalcu} = props
+  const { handleClickCalcu } = props
   const [hovered, setHovered] = useState(false)
   const textureWhats = useTexture(img_whats)
   const textureCrome = useTexture(img_crome)
   const textureGalery = useTexture(img_galery)
   const textureCalcu = useTexture(img_calcu)
   const textureEmail = useTexture(img_email)
+  const textureHome = useTexture(img_home)
   const timeRef = useRef()
   const iconsRef = useRef()
   const groupRef = useRef()
   const calendarRef = useRef()
+  const homeRef = useRef()
   const fecha = new Date()
   const stringFecha = fecha.toDateString()
   const Nameday = stringFecha.slice(0, 3)
@@ -66,16 +71,20 @@ export function Mobile(props) {
       })
     }
   }, [])
-  const [activeBack, setActiveBack] = useState(false)
+
   const handleWhats = ((e) => {
-    setActiveBack(true)
     setHovered(false)
-    gsap.to(calendarRef.current.position, {
+    gsap.to(homeRef.current.position, {
       x: -3.75,
       y: -2,
       z: 0.5
     })
-    gsap.to(timeRef.current.position, {
+    gsap.to(calendarRef.current.position, { 
+      x: 3.75,
+      y: -2,
+      z: 0.5
+    })
+    gsap.to(timeRef.current.position, { 
       y: -5.2,
       x: 2
     })
@@ -119,7 +128,6 @@ export function Mobile(props) {
     })
   })
 
-
   return (
     <group {...props} dispose={null}
       ref={groupRef}
@@ -130,20 +138,6 @@ export function Mobile(props) {
       onPointerOut={() => setHovered(false)}
       onClick={(e) => handleWhats(e)}
     >
-      {
-        activeBack ?
-          <Text
-            onClick={() => { func }}
-            rotation={[0, 0, -1.56]}
-            scale={0.5}
-            position={[-2.7, 4.5, 5]}
-          >
-            Back
-          </Text>
-          :
-          null
-      }
-
       <group
         castShadow
         ref={timeRef}
@@ -165,6 +159,20 @@ export function Mobile(props) {
         ref={iconsRef}
         position={[0, -2.1, 0.1]}
       >
+        <mesh
+        ref={homeRef}
+          onPointerOver={() => setHovered(true)}
+          onPointerOut={() => setHovered(false)}
+          onClick={(e) => navigate('/')}
+          name="Home"
+          position={[-1.25, -1, 0.5]} 
+          scale={[0.9, 0.85, 0.5]}
+        >
+          <planeGeometry />
+          <meshStandardMaterial
+            map={textureHome}
+          />
+        </mesh>
         <mesh
           name="whats"
           position={[-2.5, -2, 0.5]}
@@ -193,7 +201,7 @@ export function Mobile(props) {
           <planeGeometry />
           <meshStandardMaterial
             map={textureGalery}
-            roughness={0.01}
+            roughness={8}
           />
         </mesh>
         <mesh

@@ -11,17 +11,18 @@ export function Calculator3d(props) {
   const [position, setPosition] = useState(1.5)
   const [activeCursor, setActiveCursor] = useState(false)
   const [activeInput, setActiveInput] = useState(true)
-  const reg = /^[0-9]+$/
+  const [scaleNums,setScaleNums] = useState(50)
+
   useCursor(activeCursor)
 
   const handleClick = ((e) => {
-
+/* 
     const onlyNums = ((value) => {
-      const regex = /^[0-9]+$/
-      return regex.test(value)
+      const coco = "coco"
+      return coco === (value)
     })
 
-    console.log(onlyNums(e.object.name))
+    console.log(onlyNums("coc")) */
 
     if (e.object.name === "off") {
 
@@ -32,13 +33,16 @@ export function Calculator3d(props) {
     }
     setPosition(position => position - 0.333)
 
-    num.length > 6 && onlyNums ? setActiveInput(false) : setActiveInput(true)
+    num.length > 6  ? setScaleNums(scaleNums -3.5): setScaleNums(50)
     console.log(activeInput)
     if (e.object.name === "=") {
-      setNum("" + eval(num))
+     setNum("" + eval(num))
+     if(eval(num)=== 0){
+      setNum("")
+     }
+     
       setPosition()
     } else {
-
       activeInput ? setNum(oldArray => [...oldArray, e.object.name].join("")) : null
     }
     if (e.object.name === "c") {
@@ -63,9 +67,13 @@ export function Calculator3d(props) {
                   roughness={8}
                 />
       </Text3D>
-      <Html>
-        <div className="screen">
-          <h2> {num}</h2>
+      <Html >
+        <div  className="screen"
+         style={{   
+            fontSize:scaleNums
+          }}
+        >
+          <h2 > {num}</h2>
         </div>
       </Html>
       <group {...props} dispose={null}

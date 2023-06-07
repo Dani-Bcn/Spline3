@@ -1,24 +1,40 @@
-import { Html, Environment, RoundedBox, Scroll, ScrollControls, Text, Text3D, useCursor } from '@react-three/drei';
+import { Environment, PerspectiveCamera, Scroll, ScrollControls, SpotLight, Text, Text3D, useCursor } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import React, { useState, useEffect } from 'react';
 import { motion as m } from 'framer-motion'
 import font1 from '../fonts/Bebas_Regular.json'
+import { Calendar3d } from '../components3D/Calendar3d';
 
 const Calendar = (props) => {
-
+    const [nextMonth, setNextMonth] = useState(0)
     const { handleClickCalendar } = props
     const { activeCalendar } = props
-    const date = new Date()
-    const day = date.getDate()
-    const month = date.getMonth()
-    const year = date.getFullYear()
-    const monthDate = new Date(year, month, 1)
-    const nameCurrentMonth = date.toDateString().slice(4, 7)
-    const dayOfWeek = monthDate.getDay()
-    const arrayIcons = new Array(42).fill()
-    const weekDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     const [hover, setHover] = useState(false)
+    const currentData = new Date()
+    const currentYear = currentData.getFullYear()
+    const currentMonth = currentData.getMonth()
+    const currentDay = currentData.getDate()
+    const data = new Date(currentYear, currentMonth + nextMonth, currentDay)
+    const year = data.getFullYear()
+    const month = data.getMonth()
+    const day = data.getDate()
+    const firstDayMonth = new Date(year, month, 1).getDay();
+    const arrayNumsDay = new Array(42).fill()
+    const arrayNamesDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    const [varianNum, setVariantNum] = useState(-5)
+
+    let nameMonths = data.toDateString().slice(4, 7)
+    let nameYears = data.toDateString().slice(11, 15)
+
+    console.log(nameYears)
+
     useCursor(hover)
+
+    useEffect(() => {
+
+
+        month === 6 && month === 0 ? setVariantNum(2) : null
+    }, [nameMonths])
 
     const varianstActive = {
         open: {
@@ -44,77 +60,150 @@ const Calendar = (props) => {
     }
 
     return (
-        <m.main className='ct-calendar'
+
+        <m.main className="ct-calendar"
             variants={varianstActive}
             animate={
                 activeCalendar ? "open" : "close"
             }
+            style={{
+                position: "absolute",
+                fontFamily: "Bruno",
+            }}
         >
-            <section className='section-calendar'>
-                <h2
-                    style={{
-                        position: "absolute",
-                        top: 300,
-                        left: -200,
-                        fontSize: "5rem",
-                        display: "flex",
-                        flexDirection: "column",
-                        fontFamily: 'Yantramanav,sans-serif'
-                    }}
-                >
-                    {year}
-                </h2>
-                <h2
-                    style={{
-                        position: "absolute",
-                        top: 200,
-                        left: -200,
-                        fontSize: "5rem",
-                        fontFamily: 'Yantramanav,sans-serif'
-                    }}
-                >
-                    {nameCurrentMonth}
-                </h2>
+
+            <section className="obj-calendar">
+                <div>
+                <h3
+                        onClick={() => handleClickCalendar()}
+                        style={{
+                            position: "absolute",
+                            display: "flex",
+                            alignItems: "center",
+                            top: -225,
+                            left: -700,
+                            height: 100,
+                            fontSize: "4rem",
+                            cursor: "pointer"
+                        }}
+                    >X</h3>
+                    
+                <h3
+                        onClick={() => setNextMonth(nextMonth - 1)}
+                        style={{
+                            position: "absolute",
+                            display: "flex",
+                            alignItems: "center",
+                            top: -100,
+                            left: -625,
+                            height: 100,
+                            fontSize: "9rem",
+                            cursor: "pointer"
+                        }}
+                    >{"<<"}</h3>
+                    <h3
+                        onClick={() => setNextMonth(nextMonth + 1)}
+                        style={{
+                            position: "absolute",
+                            display: "flex",
+                            alignItems: "center",
+                            top: -100,
+                            left: -375,
+                            height: 100,
+                            fontSize: "9rem",
+                            cursor: "pointer"
+                        }}
+                    >{">>"}</h3>
+                    <h3                       
+                        style={{
+                            position: "absolute",
+                            top: 100,
+                            left: -600,
+                            fontSize: "8rem",
+                        }}
+                    >{nameMonths}</h3>
+                    <h3                        
+                        style={{
+                            position: "absolute",
+                            top: 250,
+                            left: -600,
+                            fontSize: "8rem",
+                        }}
+                    >{nameYears}</h3>
+              
+
+                </div>
                 <article className='days-calendar'>
                     {
-                        weekDays.map((e, i) => {
+                        arrayNamesDay.map((e, i) => {
                             return (
-                                <h2 key={i}>{e}</h2>
-                            )
-                        }
-                        )
-                    }
-                </article>
-                <article className='nums-calendar'>
-                    {
-                        arrayIcons.map((e, i) => {
-
-                            const numberDay = Number(new Date(year, month, i - dayOfWeek -5).toDateString().slice(8, 10))
-                            const nameMonth = new Date(year, month, i - dayOfWeek +-5).toDateString().slice(4, 7)
-                            const [colorDay, setColorDay] = useState("grey")
-
-                            useEffect(() => {
-                                if (nameCurrentMonth === nameMonth) { setColorDay("black") }
-                                if (i - dayOfWeek - 5 === day) { setColorDay("red") }
-                            }, [])
-                            2023,5,5
-                            return (
-                                <h2  key={i} style={{
-                                    color: colorDay
-                                }}>  {numberDay}</h2>
+                                <h3 key={i}>
+                                    {e}
+                                </h3>
                             )
                         })
                     }
                 </article>
-                <button
-                    onClick={() => handleClickCalendar()}
-                >
-                    Back
-                </button>
-            </section>
-        </m.main>
+                <article className='nums-calendar'>
+                    {
+                        arrayNumsDay.map((e, i) => {
+                            const [color, setColor] = useState()
+                            useEffect(() => {
+                                i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("red") : setColor("black")
+                            })
+                            return (
+                                <h2 key={i}
 
-    );
+                                    style={{
+                                        color: color
+                                    }}
+                                >
+                                    {new Date(year, month, i - firstDayMonth + varianNum).getDate()}
+                                </h2>
+                            )
+                        })
+                    }
+                </article>
+            </section>
+            <Canvas
+                shadows
+            >
+                <PerspectiveCamera
+                    makeDefault
+                    fov={1.3}
+                    position={[-13.5, 12.5, 250]}
+                    rotation={[-0.05, -0.05, -0.025]}
+                />
+                <spotLight
+                    castShadow
+                    position={[-30, 2, 20]}
+                    intensity={30}
+                    decay={1.8}
+                    distance={50}
+                    shadow-bias={0.00001}
+                />
+                <spotLight
+                    castShadow
+                    position={[0, 5, 40]}
+                    intensity={8}
+                    distance={60}
+                    decay={1.7}
+                />
+                <Environment
+                    preset='night'
+                    resolution={2040}
+                    blur={50}
+                />
+                <ScrollControls
+                    pages={0}
+                >
+                    <Scroll>
+                        <Calendar3d />
+                    </Scroll>
+                </ScrollControls>
+            </Canvas>
+        </m.main>
+    )
 }
 
 export default Calendar;
