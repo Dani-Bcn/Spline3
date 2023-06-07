@@ -8,7 +8,7 @@ import { Calendar_icon } from '../components3D/Calendar_icon';
 import { Dados_links } from '../components3D/Dados_links';
 import SceneMeteo from './SceneMeteo';
 import { Menu_home } from '../components3D/Menu_home';
-import { Lamp } from '../components3D/Lamp';
+import { Lamp } from '../components3D/Lamp3d';
 import { Plant } from '../components3D/Plant';
 
 
@@ -66,7 +66,8 @@ const MainScene = () => {
                         <Card_a />
                         <SceneMeteo />
                         <Menu_home />
-                        <Lamp lightProps={lightProps} />
+                        <Lamp/>
+                   
                         <Dados_links />
                         <Plant />
                     </Scroll>

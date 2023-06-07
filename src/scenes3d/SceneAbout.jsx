@@ -1,9 +1,8 @@
 import { Canvas } from '@react-three/fiber';
 import React, { Suspense, useRef } from 'react';
-import { Mobile } from '../components3D/Mobile';
-import { Environment, PerspectiveCamera } from '@react-three/drei';
-
-
+import { Mobile_prueba } from '../components3D/Mobile_prueba';
+/* import { Mobile } from '../components3D/Mobile'; */
+import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 
 const SceneAbout = (props) => {
 
@@ -27,12 +26,15 @@ const SceneAbout = (props) => {
             <spotLight
                 intensity={1}
                 position={[-50, 0, 100]}
-            />          
-                <Mobile 
+            /> 
+            <OrbitControls/>
+
+            <Mobile_prueba/>         
+               {/*  <Mobile 
                 handleClick={handleClick} 
                 handleClickCalendar={handleClickCalendar} 
                 handleClickCalcu={handleClickCalcu}
-                />         
+                />      */}    
         </Canvas>
     );
 }
