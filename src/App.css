@@ -167,9 +167,10 @@ Canvas {
   transition: all 0.5s;
 }
 .nums-calendar h2:hover{
-  background-color: rgb(135, 162, 168);
-  color: rgb(204, 127, 40)!important;
+  background-color: rgb(85, 86, 114);
+  color: rgb(202, 174, 146)!important;
   transition: all 0.5s;
+  cursor: pointer;
 
 }
 
