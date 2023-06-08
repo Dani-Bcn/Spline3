@@ -5,6 +5,7 @@ import { motion as m } from 'framer-motion'
 import { Canvas } from '@react-three/fiber';
 
 const Calendar = (props) => {
+
     const [nextMonth, setNextMonth] = useState(0)
     const { handleClickCalendar } = props
     const { activeCalendar } = props
@@ -70,21 +71,27 @@ const Calendar = (props) => {
         >
             <section className='select-date'
                 style={{
-                    zIndex:5,                   
+                    zIndex: 5,
                 }}
             >
-                <article>
+                <article
+                    onClick={() => handleClickCalendar()}
+                >
                     <h3>X</h3>
                 </article>
                 <article
-                style={{
-                    width:"100%",
-                    display:"flex",
-                    justifyContent:"space-around"  
-                }}
+                    style={{
+                        width: "100%",
+                        display: "flex",
+                        justifyContent: "space-around"
+                    }}
                 >
-                    <h3>{"<<"}</h3>              
-                    <h3>{">>"}</h3>
+                    <h3
+                        onClick={() => setNextMonth(nextMonth - 1)}
+                    >{"<<"}</h3>
+                    <h3
+                        onClick={() => setNextMonth(nextMonth + 1)}
+                    >{">>"}</h3>
                 </article>
                 <article>
                     <h3>{nameMonths}</h3>
@@ -95,11 +102,13 @@ const Calendar = (props) => {
             </section>
 
             <section className="obj-calendar">
-              
+
                 <article className='days-calendar'>
                     {
                         arrayNamesDay.map((e, i) => {
+      
                             return (
+
                                 <h3 key={i}>
                                     {e}
                                 </h3>
@@ -112,7 +121,9 @@ const Calendar = (props) => {
                         arrayNumsDay.map((e, i) => {
                             const [color, setColor] = useState()
                             useEffect(() => {
-                                i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("red") : setColor("black")
+                              new  Date(year, month ,i-9).getMonth()  === currentMonth ?setColor("rgb(155,220,250)") : setColor("rgb(175,175,175)")
+                                i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("rgb(255,150,200)") : null
+
                             })
                             return (
                                 <h2 key={i}
@@ -120,14 +131,14 @@ const Calendar = (props) => {
                                         color: color
                                     }}
                                 >
-                                    {new Date(year, month, i - firstDayMonth + varianNum).getDate()}
+                                    {new Date(year, month + nextMonth, i - firstDayMonth + varianNum).getDate()}
                                 </h2>
                             )
                         })
                     }
                 </article>
             </section>
-     
+
             <Canvas
                 shadows
             >
