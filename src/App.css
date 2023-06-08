@@ -176,7 +176,7 @@ Canvas {
 .select-date{
   position: absolute;
   transform: skew(-12deg);
-  top:50px;
+  top:0px;
   left:50px;
   width: 300px;
   height: 500px;
@@ -186,6 +186,7 @@ Canvas {
   align-items: center;
   justify-content: space-between;
   font-size: 3.5rem;
+  color: rgb(7, 46, 56);
 }
 
 .select-date h3:hover{
