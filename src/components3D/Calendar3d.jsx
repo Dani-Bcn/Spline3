@@ -12,20 +12,20 @@ export function Calendar3d(props) {
          <group position={[0, 0, 0.02]}>
         <mesh
           castShadow
-          receiveShadow
+         
           geometry={nodes.Cube1.geometry}
           material={nodes.Cube1.material}
           position={[0, 0, -1.04]}
           rotation={[Math.PI / 9, 0, 0]}
           >
           <meshStandardMaterial
-              color={"rgb(50,120,175)"}
-
+              color={"rgb(50,50,85)"}
+                    roughness={5}
           />
         </mesh>
         <mesh
           castShadow
-          receiveShadow
+      
           geometry={nodes.Cube.geometry}
           material={nodes.Cube.material}
           position={[0, 0, 1.04]}
@@ -33,8 +33,7 @@ export function Calendar3d(props) {
           >
           <meshStandardMaterial
               color={"rgb(150,150,155)"}
-              metalness={1}
-              roughness={0.1}
+              
               transparent
               opacity={0.5}
 
@@ -43,7 +42,7 @@ export function Calendar3d(props) {
       </group>
       <group position={[0.01, 2.56, 0]}>
         <mesh
-          castShadow
+         
           receiveShadow
           geometry={nodes.Cilindro16.geometry}
           material={nodes.Cilindro16.material}
@@ -173,8 +172,7 @@ export function Calendar3d(props) {
           <meshStandardMaterial
               color={"rgb(200,120,125)"}
               metalness={0.5}
-              roughness={0.1}
-
+              roughness={0.1}           
           />
         </mesh>
       </group>
@@ -191,8 +189,8 @@ export function Calendar3d(props) {
           resolution={2048}
           mixBlur={1}
           mixStrength={5}
-          roughness={1}
-          depthScale={0.1}
+          roughness={5}
+          depthScale={0.3}
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}
           color="rgb(75,75,80)"

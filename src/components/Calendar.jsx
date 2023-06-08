@@ -67,66 +67,66 @@ const Calendar = (props) => {
                 position: "absolute",
                 fontFamily: "Bruno",
             }}
-        >
-            <section className="obj-calendar">
-                <div>
-                    <h3
-                        onClick={() => handleClickCalendar()}
-                        style={{
-                            position: "absolute",
-                            display: "flex",
-                            alignItems: "center",
-                            top: -150,
-                            left: -675,
-                            height: 100,
-                            fontSize: "4rem",
-                            cursor: "pointer"
-                        }}
-                    >X</h3>
-                    <h3
-                        onClick={() => setNextMonth(nextMonth - 1)}
-                        style={{
-                            position: "absolute",
-                            display: "flex",
-                            alignItems: "center",
-                            top:50,
-                            left: -575,
-                            height: 100,
-                            fontSize: "6rem",
-                            cursor: "pointer"
-                        }}
-                    >{"<<"}</h3>
-                    <h3
-                        onClick={() => setNextMonth(nextMonth + 1)}
-                        style={{
-                            position: "absolute",
-                            display: "flex",
-                            alignItems: "center",
-                            top:50,
-                            left: -375,
-                            height: 100,
-                            fontSize: "6rem",
-                            cursor: "pointer"
-                        }}
-                    >{">>"}</h3>
-                    <h3
-                        style={{
-                            position: "absolute",
-                            top: 200,
-                            left: -550,
-                            fontSize: "6rem",
-                        }}
-                    >{nameMonths}</h3>
-                    <h3
-                        style={{
-                            position: "absolute",
-                            top: 350,
-                            left: -550,
-                            fontSize: "6rem",
-                        }}
-                    >{nameYears}</h3>
+        > {/*  <div>
+        <h3
+            onClick={() => handleClickCalendar()}
+            style={{
+                position: "absolute",
+                display: "flex",
+                alignItems: "center",
+                top: -150,
+                left: -675,
+                height: 100,
+                fontSize: "4rem",
+                cursor: "pointer"
+            }}
+        >X</h3>
+        <h3
+            onClick={() => setNextMonth(nextMonth - 1)}
+            style={{
+                position: "absolute",
+                display: "flex",
+                alignItems: "center",
+                top: 50,
+                left: -575,
+                height: 100,
+                fontSize: "6rem",
+                cursor: "pointer"
+            }}
+        >{"<<"}</h3>
+        <h3
+            onClick={() => setNextMonth(nextMonth + 1)}
+            style={{
+                position: "absolute",
+                display: "flex",
+                alignItems: "center",
+                top: 50,
+                left: -375,
+                height: 100,
+                fontSize: "6rem",
+                cursor: "pointer"
+            }}
+        >{">>"}</h3>
+        <h3
+            style={{
+                position: "absolute",
+                top: 200,
+                left: -550,
+                fontSize: "6rem",
+            }}
+        >{nameMonths}</h3>
+        <h3
+            style={{
+                position: "absolute",
+                top: 350,
+                left: -550,
+                fontSize: "6rem",
+            }}
+        >{nameYears}</h3>
 
-                </div>
+    </div> */}
+            <section className="obj-calendar">
+              
                 <article className='days-calendar'>
                     {
                         arrayNamesDay.map((e, i) => {
@@ -160,24 +160,25 @@ const Calendar = (props) => {
             </section>
             <Canvas
                 shadows
-            >              
+            >
                 <Environment
                     preset='city'
                 />
                 <PerspectiveCamera
-                makeDefault
-                position={[0,0,250]}
+                    makeDefault
+                    position={[0, 0, 250]}
                     fov={1}
                 />
                 <pointLight
-                position={[-5,5,5]}
+                    position={[-5, 5, 5]}
                     castShadow
-                    intensity={5}
-                    shadow-bias={0.001}                    
+                    intensity={7}
+                    shadow-bias={0.0001}
                     distance={75}
-                    decay={10}
+                    decay={18}
                 />
-                <ScrollControls>
+                <ScrollControls
+                    pages={0}>
                     <Scroll>
                         <Calendar3d />
                     </Scroll>
