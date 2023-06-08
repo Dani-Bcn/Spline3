@@ -112,7 +112,7 @@ Canvas {
 .ct-calendar {
   position: absolute;
   width: 100vw;
-  height: 110vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,11 +123,11 @@ Canvas {
 
 .obj-calendar{
   position: absolute;
-  transform: skew(-9.5deg);
-  top:220px;
-  left:650px;
-  width: 900px;
-  height: 600px;
+  transform: skew(-13.5deg);
+  top:170px;
+  left:635px;
+  width: 850px;
+  height: 500px;
   z-index: 5;
 }
 
@@ -143,7 +143,7 @@ Canvas {
 .section-calendar {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 80%;
 
 }
 
@@ -151,7 +151,7 @@ Canvas {
   position: absolute;
   top: 25px;
   left: -75px;
-  width: 200%;
+  width: 100%;
   display: flex;
   font-family: 'Yantramanav', sans-serif;
   justify-content: start;
@@ -165,7 +165,7 @@ Canvas {
   position: absolute;
   top: 75px;
   left: -75px;
-  width: 90%;
+  width: 100%;
   height: 70%;
   flex-wrap: wrap;
   display: flex;

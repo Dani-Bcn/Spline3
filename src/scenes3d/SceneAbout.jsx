@@ -9,7 +9,7 @@ const SceneAbout = (props) => {
     const cameraRef = useRef()
 
     const { handleClick } = props
-    const { handleClickCalendar } = props
+    const { handleClickCalendar } = props 
     const { handleClickCalcu } = props
 
     return (

@@ -1,9 +1,8 @@
-import { Environment, PerspectiveCamera, Scroll, ScrollControls, SpotLight, Text, Text3D, useCursor } from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
+import { Environment, OrbitControls, PerspectiveCamera, Scroll, ScrollControls, SpotLight, Text, Text3D, useCursor } from '@react-three/drei';
+import { Calendar3d } from '../components3D/Calendar3d';
 import React, { useState, useEffect } from 'react';
 import { motion as m } from 'framer-motion'
-import font1 from '../fonts/Bebas_Regular.json'
-import { Calendar3d } from '../components3D/Calendar3d';
+import { Canvas } from '@react-three/fiber';
 
 const Calendar = (props) => {
     const [nextMonth, setNextMonth] = useState(0)
@@ -31,8 +30,6 @@ const Calendar = (props) => {
     useCursor(hover)
 
     useEffect(() => {
-
-
         month === 6 && month === 0 ? setVariantNum(2) : null
     }, [nameMonths])
 
@@ -71,33 +68,31 @@ const Calendar = (props) => {
                 fontFamily: "Bruno",
             }}
         >
-
             <section className="obj-calendar">
                 <div>
-                <h3
+                    <h3
                         onClick={() => handleClickCalendar()}
                         style={{
                             position: "absolute",
                             display: "flex",
                             alignItems: "center",
-                            top: -225,
-                            left: -700,
+                            top: -150,
+                            left: -675,
                             height: 100,
                             fontSize: "4rem",
                             cursor: "pointer"
                         }}
                     >X</h3>
-                    
-                <h3
+                    <h3
                         onClick={() => setNextMonth(nextMonth - 1)}
                         style={{
                             position: "absolute",
                             display: "flex",
                             alignItems: "center",
-                            top: -100,
-                            left: -625,
+                            top:50,
+                            left: -575,
                             height: 100,
-                            fontSize: "9rem",
+                            fontSize: "6rem",
                             cursor: "pointer"
                         }}
                     >{"<<"}</h3>
@@ -107,30 +102,29 @@ const Calendar = (props) => {
                             position: "absolute",
                             display: "flex",
                             alignItems: "center",
-                            top: -100,
+                            top:50,
                             left: -375,
                             height: 100,
-                            fontSize: "9rem",
+                            fontSize: "6rem",
                             cursor: "pointer"
                         }}
                     >{">>"}</h3>
-                    <h3                       
+                    <h3
                         style={{
                             position: "absolute",
-                            top: 100,
-                            left: -600,
-                            fontSize: "8rem",
+                            top: 200,
+                            left: -550,
+                            fontSize: "6rem",
                         }}
                     >{nameMonths}</h3>
-                    <h3                        
+                    <h3
                         style={{
                             position: "absolute",
-                            top: 250,
-                            left: -600,
-                            fontSize: "8rem",
+                            top: 350,
+                            left: -550,
+                            fontSize: "6rem",
                         }}
                     >{nameYears}</h3>
-              
 
                 </div>
                 <article className='days-calendar'>
@@ -153,7 +147,6 @@ const Calendar = (props) => {
                             })
                             return (
                                 <h2 key={i}
-
                                     style={{
                                         color: color
                                     }}
@@ -167,41 +160,30 @@ const Calendar = (props) => {
             </section>
             <Canvas
                 shadows
-            >
-                <PerspectiveCamera
-                    makeDefault
-                    fov={1.3}
-                    position={[-13.5, 12.5, 250]}
-                    rotation={[-0.05, -0.05, -0.025]}
-                />
-                <spotLight
-                    castShadow
-                    position={[-30, 2, 20]}
-                    intensity={30}
-                    decay={1.8}
-                    distance={50}
-                    shadow-bias={0.00001}
-                />
-                <spotLight
-                    castShadow
-                    position={[0, 5, 40]}
-                    intensity={8}
-                    distance={60}
-                    decay={1.7}
-                />
+            >              
                 <Environment
-                    preset='night'
-                    resolution={2040}
-                    blur={50}
+                    preset='city'
                 />
-                <ScrollControls
-                    pages={0}
-                >
+                <PerspectiveCamera
+                makeDefault
+                position={[0,0,250]}
+                    fov={1}
+                />
+                <pointLight
+                position={[-5,5,5]}
+                    castShadow
+                    intensity={5}
+                    shadow-bias={0.001}                    
+                    distance={75}
+                    decay={10}
+                />
+                <ScrollControls>
                     <Scroll>
                         <Calendar3d />
                     </Scroll>
                 </ScrollControls>
             </Canvas>
+
         </m.main>
     )
 }

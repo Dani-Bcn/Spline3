@@ -1,7 +1,6 @@
 import { Environment, PerspectiveCamera, OrbitControls, RoundedBox, Scroll, ScrollControls, useScroll } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import React, { useRef, useState, Suspense } from 'react';
-import { Star1 } from '../components3D/Star1';
 import { Card_a } from '../components3D/Card_a';
 import { Title3d } from '../components3D/Title3d';
 import { Calendar_icon } from '../components3D/Calendar_icon';
@@ -50,7 +49,7 @@ const MainScene = () => {
                 <Environment
                     preset={presetEnviroment}
                 />
-                {/*  <OrbitControls />   */}
+         
                 <ScrollControls
                     pages={2}
                     damping={0.5}
@@ -60,14 +59,12 @@ const MainScene = () => {
                         <RoundedBox
                             position={[-6, 0, 0]}
                         ></RoundedBox>
-                        <Star1 />
                         <Title3d />
                         <Calendar_icon />
                         <Card_a />
                         <SceneMeteo />
                         <Menu_home />
-                        <Lamp/>
-                   
+                        <Lamp />
                         <Dados_links />
                         <Plant />
                     </Scroll>

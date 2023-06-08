@@ -4,7 +4,7 @@ import font1 from '../fonts/Bebas_Regular.json'
 import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
 
-export function Calendar_icon(props) { 
+export function Calendar_icon(props) {  
 
     const { nodes, materials } = useGLTF("/Calendar_icon");
    
