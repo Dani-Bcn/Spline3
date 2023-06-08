@@ -171,7 +171,25 @@ Canvas {
   color: rgb(202, 174, 146)!important;
   transition: all 0.5s;
   cursor: pointer;
+}
 
+.select-date{
+  position: absolute;
+  transform: skew(-12deg);
+  top:50px;
+  left:50px;
+  width: 300px;
+  height: 500px;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 3.5rem;
+}
+
+.select-date h3:hover{
+  cursor: pointer;
 }
 
 .ct-calculator{

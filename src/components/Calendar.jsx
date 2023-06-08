@@ -67,64 +67,33 @@ const Calendar = (props) => {
                 position: "absolute",
                 fontFamily: "Bruno",
             }}
-        > {/*  <div>
-        <h3
-            onClick={() => handleClickCalendar()}
-            style={{
-                position: "absolute",
-                display: "flex",
-                alignItems: "center",
-                top: -150,
-                left: -675,
-                height: 100,
-                fontSize: "4rem",
-                cursor: "pointer"
-            }}
-        >X</h3>
-        <h3
-            onClick={() => setNextMonth(nextMonth - 1)}
-            style={{
-                position: "absolute",
-                display: "flex",
-                alignItems: "center",
-                top: 50,
-                left: -575,
-                height: 100,
-                fontSize: "6rem",
-                cursor: "pointer"
-            }}
-        >{"<<"}</h3>
-        <h3
-            onClick={() => setNextMonth(nextMonth + 1)}
-            style={{
-                position: "absolute",
-                display: "flex",
-                alignItems: "center",
-                top: 50,
-                left: -375,
-                height: 100,
-                fontSize: "6rem",
-                cursor: "pointer"
-            }}
-        >{">>"}</h3>
-        <h3
-            style={{
-                position: "absolute",
-                top: 200,
-                left: -550,
-                fontSize: "6rem",
-            }}
-        >{nameMonths}</h3>
-        <h3
-            style={{
-                position: "absolute",
-                top: 350,
-                left: -550,
-                fontSize: "6rem",
-            }}
-        >{nameYears}</h3>
+        >
+            <section className='select-date'
+                style={{
+                    zIndex:5,                   
+                }}
+            >
+                <article>
+                    <h3>X</h3>
+                </article>
+                <article
+                style={{
+                    width:"100%",
+                    display:"flex",
+                    justifyContent:"space-around"  
+                }}
+                >
+                    <h3>{"<<"}</h3>              
+                    <h3>{">>"}</h3>
+                </article>
+                <article>
+                    <h3>{nameMonths}</h3>
+                </article>
+                <article>
+                    <h3>{nameYears}</h3>
+                </article>
+            </section>
 
-    </div> */}
             <section className="obj-calendar">
               
                 <article className='days-calendar'>
@@ -158,6 +127,7 @@ const Calendar = (props) => {
                     }
                 </article>
             </section>
+     
             <Canvas
                 shadows
             >
