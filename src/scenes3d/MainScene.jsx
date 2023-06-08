@@ -9,6 +9,7 @@ import SceneMeteo from './SceneMeteo';
 import { Menu_home } from '../components3D/Menu_home';
 import { Lamp } from '../components3D/Lamp3d';
 import { Plant } from '../components3D/Plant';
+import { Back_logo } from '../components3D/Back_logo3d';
 
 
 
@@ -67,6 +68,7 @@ const MainScene = () => {
                         <Lamp />
                         <Dados_links />
                         <Plant />
+                        <Back_logo/>
                     </Scroll>
                 </ScrollControls>
             </Canvas>

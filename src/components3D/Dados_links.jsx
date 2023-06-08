@@ -5,7 +5,7 @@ import { useGLTF, useCursor } from "@react-three/drei";
 import { gsap } from "gsap";
 
 export function Dados_links(props) {
-    const { nodes, materials } = useGLTF("/Dados_links.gltf");
+    const { nodes, materials } = useGLTF("/Dados_links.glb");
     const [hover, sethover] = useState(false)
     const navigate = useNavigate()
     const gitRef = useRef()
@@ -191,4 +191,4 @@ export function Dados_links(props) {
     );
 }
 
-useGLTF.preload("/Dados_links.gltf");
+useGLTF.preload("/Dados_links.glb");

@@ -5,7 +5,7 @@ export function Lamp(props) {
     const { nodes, materials } = useGLTF("/Lamp.glb");
     return (
         <group {...props} dispose={null}
-            position={[-0.7, -1.325, -55]}
+            position={[-0.8, -1.325, -55]}
             rotation={[0.07, -3, 0]}
             scale={0.015}
         >
@@ -65,8 +65,7 @@ export function Lamp(props) {
                     material={nodes.Cilindro.material}
                     position={[0.39, 1, -2.14]}
                     scale={0.8}
-                    >
-                   
+                    >                   
                         <meshStandardMaterial
                             color={"rgb(20,125,150)"}
                             roughness={0.5}
@@ -96,15 +95,28 @@ export function Lamp(props) {
                 rotation={[0, 0, 0.2]}
                 >
                 <meshStandardMaterial
-                    color={"rgb(10,125,150)"}
+                    color={"rgb(10,15,50)"}
                     roughness={0.5}
                     metalness={0.2}
                 />
-
             </mesh>
             <pointLight
-                castShadow
+            position={[-20,30,-50]}
+             castShadow
+                intensity={5}
+                decay={4}
+                distance={1.8}
+                shadow-bias={0.00001}
+
             />
+             <pointLight
+            position={[-20,35,0]}                
+                distance={15}
+                intensity={2}
+                decay={10}
+                castShadow
+                shadow-bias={0.000001}
+            />             
         </group>
     );
 }

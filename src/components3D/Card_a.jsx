@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 
 export function Card_a(props) {
 
-    const { nodes, materials } = useGLTF("/Card.gltf");
+    const { nodes, materials } = useGLTF("/Card.glb");
   
   
     const [hover, setHover] = useState(false)
@@ -124,4 +124,4 @@ export function Card_a(props) {
     );
 }
 
-useGLTF.preload("/Card.gltf");
+useGLTF.preload("/Card.glb");

@@ -100,6 +100,7 @@ export function Menu_home(props) {
           onPointerOver={() => hoverAboutOn()}
           onPointerOut={() => hoverAboutOff()}
         >
+         
           <Text3D
             position={[-56, 105, -1.57]}
             scale={[20, 25, 45]}
@@ -137,6 +138,7 @@ export function Menu_home(props) {
             ref={aboutRef}
             castShadow
             receiveShadow
+          
             geometry={nodes.Rectangle_2.geometry}
             material={nodes.Rectangle_2.material}
             position={[0, 120, -16.57]}
@@ -245,6 +247,16 @@ export function Menu_home(props) {
           metalness={0.5}
         />
       </RoundedBox>
+      <mesh
+          receiveShadow
+            scale={[1500,1000,5]}
+            position={[-5,-5,-0.15]}
+          >
+            <planeGeometry/>
+            <meshStandardMaterial
+              color={"rgb(50,50,50)"}
+            />
+          </mesh>
     </group>
   );
 }

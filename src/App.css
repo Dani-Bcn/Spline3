@@ -44,7 +44,6 @@ Canvas {
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(96, 117, 131, 0.089);
   justify-content: center;
   align-items: center;
   z-index: 1;
@@ -111,8 +110,10 @@ Canvas {
 
 .ct-calendar {
   position: absolute;
+  opacity: 0;
   width: 100vw;
   height: 100vh;
+  top:1500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,6 +184,7 @@ Canvas {
   justify-content: space-between;
   font-size: 3.5rem;
   color: rgb(7, 46, 56);
+  transition: all 0.5s;
 }
 
 .select-date h3:hover{

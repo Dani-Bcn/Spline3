@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
 
 export function Title3d(props) {
-  const { nodes, materials } = useGLTF("/NombreDani.gltf");
+  const { nodes, materials } = useGLTF("/NombreDani.glb");
 
   const groupRef = useRef()
   const dRef = useRef()
@@ -190,4 +190,4 @@ export function Title3d(props) {
   );
 }
 
-useGLTF.preload("/NombreDani.gltf");
+useGLTF.preload("/NombreDani.glb");

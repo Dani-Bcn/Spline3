@@ -132,7 +132,7 @@ export function Mobile_prueba(props) {
     <group {...props} dispose={null}
       ref={groupRef}
       scale={[0.4, 0.43, 0.3]}
-      position={[5, 0, 50]}
+      position={[15, 0, 5]}
       rotation={[1, 5, 0]}
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}

@@ -42,7 +42,7 @@ const About = () => {
             <m.div className='back-about'
                 animate={{
                     x: [-2000, 0],
-                    opacity: [0, 0, 0, 0.9],
+                    opacity: [0, 0, 0, 1],
                     transition: {
                         delay: 2,
                         ease: "backOut",
@@ -52,7 +52,7 @@ const About = () => {
             ></m.div>
             <m.article className='article-about'
                 animate={{
-                    opacity: [0, 1],
+                    opacity: [0, 0,0,0,1],
                     top: [850, -100],
                     transition: {
                         ease: "circOut",

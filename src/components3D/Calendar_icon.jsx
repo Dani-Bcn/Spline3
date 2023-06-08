@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 
 export function Calendar_icon(props) {  
 
-    const { nodes, materials } = useGLTF("/Calendar_icon");
+    const { nodes, materials } = useGLTF("/Calendar_icon.glb");
    
     const fecha = new Date()
     const hoy = fecha.toDateString()
@@ -184,4 +184,4 @@ export function Calendar_icon(props) {
     );
 }
 
-useGLTF.preload("/Calendar_icon");
+useGLTF.preload("/Calendar_icon.glb");

@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import React, { Suspense, useRef } from 'react';
 import { Mobile_prueba } from '../components3D/Mobile_prueba';
-/* import { Mobile } from '../components3D/Mobile'; */
+
 import { Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 
 const SceneAbout = (props) => {

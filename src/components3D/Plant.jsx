@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useGLTF, OrthographicCamera } from "@react-three/drei";
 
 export function Plant(props) {
-    const { nodes, materials } = useGLTF("/Plant");
+    const { nodes, materials } = useGLTF("/Plant.glb");
     return (
         <group {...props} dispose={null}
             position={[-0.4, -1.35, -55]}
@@ -100,4 +100,4 @@ export function Plant(props) {
     );
 }
 
-useGLTF.preload("/Plant");
+useGLTF.preload("/Plant.glb");

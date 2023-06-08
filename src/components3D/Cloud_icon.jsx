@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
 
 export function Cloud_icon(props) {
-  const { nodes, materials } = useGLTF("/Cloud.gltf");
+  const { nodes, materials } = useGLTF("/Cloud.glb");
   const groupRef = useRef()
   const data = useScroll()
   const [hover, setHover] = useState(false)
@@ -203,7 +203,6 @@ export function Cloud_icon(props) {
             position={[0, 2, 0]}
           />
           <mesh>
-
           </mesh>
         </group>
       </group>
@@ -211,4 +210,4 @@ export function Cloud_icon(props) {
   );
 }
 
-useGLTF.preload("/Cloud.gltf");
+useGLTF.preload("/Cloud.glb");

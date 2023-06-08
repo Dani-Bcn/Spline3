@@ -3,7 +3,7 @@ import { Text3D, useGLTF, useCursor, Html } from "@react-three/drei";
 import font1 from '../fonts/Bruno.json'
 
 export function Calculator3d(props) {
-  const { nodes, materials } = useGLTF("/Calculadora.gltf");
+  const { nodes, materials } = useGLTF("/Calculadora.glb");
   const botonRef = useRef()
   const { activeCalcu } = props
   const { handleClickCalcu } = props
@@ -736,4 +736,4 @@ export function Calculator3d(props) {
   );
 }
 
-useGLTF.preload("/Calculadora.gltf");
+useGLTF.preload("/Calculadora.glb");

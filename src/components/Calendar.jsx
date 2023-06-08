@@ -37,11 +37,11 @@ const Calendar = (props) => {
     const varianstActive = {
         open: {
             clipPath: "circle(75% at 50% 50%)",
-            opacity: [0, 1, 1, 1],
+            opacity: [0, 0, 0, 1],
             top: [0, 0],
             left: [0, 0],
             transition: {
-                duration: 2,
+                duration: 1,
                 ease: "backOut"
             }
         },
@@ -123,7 +123,6 @@ const Calendar = (props) => {
                             useEffect(() => {
                               new  Date(year, month ,i-9).getMonth()  === currentMonth ?setColor("rgb(155,220,250)") : setColor("rgb(175,175,175)")
                                 i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("rgb(255,150,200)") : null
-
                             })
                             return (
                                 <h2 key={i}
