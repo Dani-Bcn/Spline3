@@ -9,7 +9,7 @@ const SceneAbout = (props) => {
     const cameraRef = useRef()
 
     const { handleClick } = props
-    const { handleClickCalendar } = props 
+    const { handleClickCalendar } = props
     const { handleClickCalcu } = props
 
     return (
@@ -25,16 +25,14 @@ const SceneAbout = (props) => {
             />
             <spotLight
                 intensity={1}
-                position={[-50, 0, 100]} 
-            /> 
-          
-
-            <Mobile_prueba         
-   
-                handleClick={handleClick} 
-                handleClickCalendar={handleClickCalendar} 
+                position={[-50, 0, 100]}
+            />
+            <Mobile_prueba
+                handleClick={handleClick}
+                handleClickCalendar={handleClickCalendar}
                 handleClickCalcu={handleClickCalcu}
-                >    </Mobile_prueba>   
+            >
+            </Mobile_prueba>
         </Canvas>
     );
 }

@@ -329,6 +329,8 @@ export function Mobile_prueba(props) {
             material={materials["Material.009"]}
           />
           <mesh
+          rotation={[0,3.15,3.14]}
+          position={[0,0,1]}
             castShadow
             receiveShadow
             geometry={nodes["Loft-Mat2"].geometry}

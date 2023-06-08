@@ -49,8 +49,7 @@ const MainScene = () => {
             >
                 <Environment
                     preset={presetEnviroment}
-                />
-         
+                />         
                 <ScrollControls
                     pages={2}
                     damping={0.5}

@@ -62,7 +62,7 @@ export function Dados_links(props) {
                 onPointerOut={() => hoverDomestikaOff()}
                 onClick={() => window.location.href = 'https://www.domestika.org/es/nneodani'}
                 rotation={[0, 0.1, 0.02]}
-                position={[35, 82, -90.13]}>
+                position={[35, 82, -50.13]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -71,8 +71,8 @@ export function Dados_links(props) {
                     position={[0, 0, -22.13]}
                 >
                     <meshStandardMaterial
-                        color={"rgb(250,75,75)"}
-                        roughness={0.5}
+                        color={"rgb(175,50,50)"}
+                        roughness={0.8}
                     >
                     </meshStandardMaterial>
                 </mesh>
@@ -86,7 +86,7 @@ export function Dados_links(props) {
                     position={[0, 0, 0]}
                 >
                     <meshStandardMaterial
-                        color={"rgb(220,220,220)"}
+                        color={"rgb(175,175,175)"}
                         roughness={0.5}
                     >
                     </meshStandardMaterial>
@@ -97,7 +97,7 @@ export function Dados_links(props) {
                 onPointerOut={() => hoverGit_hubOff()}
                 onClick={() => window.location.href = 'https://github.com/Dani-Bcn'}
                 rotation={[0.02, 0.2, -0.03]}
-                position={[0, 3, -16.07]}>
+                position={[0, 1, -16.07]}>
                 <mesh
                     castShadow
                     receiveShadow
@@ -106,8 +106,8 @@ export function Dados_links(props) {
                     position={[0, 0, 17.07]}
                 >
                     <meshStandardMaterial
-                        color={"rgb(210,210,210)"}
-                        roughness={0.5}
+                        color={"rgb(190,190,190)"}
+                        roughness={0.9}
                     >
                     </meshStandardMaterial>
                 </mesh>
@@ -120,7 +120,7 @@ export function Dados_links(props) {
                     position={[0, 0, -25]}
                 >
                     <meshStandardMaterial
-                        color={"rgb(75,75,75)"}
+                        color={"rgb(50,50,50)"}
                         roughness={0.2}
                     >
                     </meshStandardMaterial>
@@ -130,8 +130,8 @@ export function Dados_links(props) {
                 onPointerOver={() => hoverLinkedinOn()}
                 onPointerOut={() => hoverLinkedinOff()}h
             onClick={()=> window.location.href='Https://www.linkedin.com/in/daniperezbnc/' }
-                position={[100.83, 0.5, -100.63]}
-                rotation={[0.01, 1, -0.01]}
+                position={[100.83, 2, -100.63]}
+                rotation={[0.08, 1, -0.05]}
             >
                 <group position={[-2.83, 0, 0]}
                     ref={linkedinRef}
@@ -143,8 +143,8 @@ export function Dados_links(props) {
                         material={nodes.Extrusión2.material}
                     >
                         <meshStandardMaterial
-                            color={"rgb(180,180,180)"}
-                            roughness={0.8}
+                            color={"rgb(150,150,150)"}
+                            roughness={5}
                         >
                         </meshStandardMaterial>
                     </mesh>
@@ -155,8 +155,8 @@ export function Dados_links(props) {
                         material={nodes.Extrusión1_1.material}
                     >
                         <meshStandardMaterial
-                            color={"rgb(180,180,180)"}
-                            roughness={0.5}
+                               color={"rgb(150,150,150)"}
+                               roughness={5}
                         >
                         </meshStandardMaterial>
                     </mesh>
@@ -167,8 +167,8 @@ export function Dados_links(props) {
                         material={nodes.Extrusión.material}
                     >
                         <meshStandardMaterial
-                            color={"rgb(180,180,180)"}
-                            roughness={0.5}
+                              color={"rgb(150,150,150)"}
+                              roughness={5}
                         >
                         </meshStandardMaterial>
                     </mesh>
@@ -182,7 +182,7 @@ export function Dados_links(props) {
                 >
                     <meshStandardMaterial
                         color={"rgb(50,100,200)"}
-                        roughness={0.5}
+                        roughness={2}
                     >
                     </meshStandardMaterial>
                 </mesh>

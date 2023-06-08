@@ -38,7 +38,7 @@ export function Lamp(props) {
                     material={nodes.Cubo1.material}
                     position={[0.54, 2, 3.2]}
                     rotation={[0.01, 0.02, -0.15]}
-                    >
+                >
                     <meshStandardMaterial
                         color={"rgb(220,125,150)"}
                         roughness={0.5}
@@ -51,7 +51,7 @@ export function Lamp(props) {
                     geometry={nodes.Cubo.geometry}
                     material={nodes.Cubo.material}
                     position={[0.54, 1, 3.2]}
-                    >
+                >
                     <meshStandardMaterial
                         color={"rgb(220,125,150)"}
                         roughness={0.5}
@@ -65,13 +65,13 @@ export function Lamp(props) {
                     material={nodes.Cilindro.material}
                     position={[0.39, 1, -2.14]}
                     scale={0.8}
-                    >                   
-                        <meshStandardMaterial
-                            color={"rgb(20,125,150)"}
-                            roughness={0.5}
-                            metalness={0.5}
-                        />
-                    </mesh>
+                >
+                    <meshStandardMaterial
+                        color={"rgb(20,125,150)"}
+                        roughness={0.5}
+                        metalness={0.5}
+                    />
+                </mesh>
             </group>
             <mesh
                 castShadow
@@ -79,7 +79,7 @@ export function Lamp(props) {
                 geometry={nodes.Sphere.geometry}
                 material={nodes.Sphere.material}
                 position={[-11.09, 34.82, 0]}
-                >
+            >
                 <meshStandardMaterial
                     color={"rgb(220,175,150)"}
                     roughness={0.4}
@@ -93,7 +93,7 @@ export function Lamp(props) {
                 material={nodes.Cone.material}
                 position={[-16.4, 33.64, 0]}
                 rotation={[0, 0, 0.2]}
-                >
+            >
                 <meshStandardMaterial
                     color={"rgb(10,15,50)"}
                     roughness={0.5}
@@ -101,22 +101,30 @@ export function Lamp(props) {
                 />
             </mesh>
             <pointLight
-            position={[-20,30,-50]}
-             castShadow
+                position={[-20, 30, -50]}
+                castShadow
                 intensity={5}
-                decay={4}
+                decay={3.6}
                 distance={1.8}
                 shadow-bias={0.00001}
 
             />
-             <pointLight
-            position={[-20,35,0]}                
+            <pointLight
+                position={[-5, 35, -5]}
+                distance={15}
+                intensity={2}
+                decay={20}
+                castShadow
+                shadow-bias={0.000001}
+            />
+            <pointLight
+                position={[-20, 35, 0]}
                 distance={15}
                 intensity={2}
                 decay={10}
-                castShadow
+              
                 shadow-bias={0.000001}
-            />             
+            />
         </group>
     );
 }
