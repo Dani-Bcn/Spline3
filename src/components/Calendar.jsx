@@ -1,7 +1,7 @@
 import { Environment, OrbitControls, PerspectiveCamera, Scroll, ScrollControls, SpotLight, Text, Text3D, useCursor } from '@react-three/drei';
-import { Calendar3d } from '../components3D/Calendar3d';
 import React, { useState, useEffect } from 'react';
 import { motion as m } from 'framer-motion'
+import { Flowers } from '../components3D/Flowers';
 import { Canvas } from '@react-three/fiber';
 
 const Calendar = (props) => {
@@ -22,11 +22,8 @@ const Calendar = (props) => {
     const arrayNumsDay = new Array(42).fill()
     const arrayNamesDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     const [varianNum, setVariantNum] = useState(-5)
-
     let nameMonths = data.toDateString().slice(4, 7)
     let nameYears = data.toDateString().slice(11, 15)
-
-    console.log(nameYears)
 
     useCursor(hover)
 
@@ -36,7 +33,7 @@ const Calendar = (props) => {
 
     const varianstActive = {
         open: {
-            clipPath: "circle(75% at 50% 50%)",
+            clipPath: "circle(71% at 50% 50%)",
             opacity: [0, 0, 0, 1],
             top: [0, 0],
             left: [0, 0],
@@ -59,113 +56,111 @@ const Calendar = (props) => {
 
     return (
 
-        <m.main className="ct-calendar"
+        <m.main className="calendar"
             variants={varianstActive}
             animate={
                 activeCalendar ? "open" : "close"
             }
-            style={{
-                position: "absolute",
-                fontFamily: "Bruno",
-            }}
         >
-            <section className='select-date'
+            <h3
                 style={{
+                    position: "absolute",
+                    fontSize: "2rem",
+                    margin: 50,
+                    cursor: "pointer",
                     zIndex: 5,
+                    color: "wheat",
+                }}
+                onClick={() => handleClickCalendar()}
+            >X</h3>
+            <section className='ct-calendar'>
+                <section className='head-calendar'>
+                    <h3>{nameMonths}</h3>
+                    <h3>{nameYears}</h3>
+                </section>
+                <section>
+                    <article className='days-calendar'>
+                        {
+                            arrayNamesDay.map((e, i) => {
+                                return (
+                                    <h3 key={i}>
+                                        {e}
+                                    </h3>
+                                )
+                            })
+                        }
+                    </article>
+                    <article className='nums-calendar'>
+                        {
+                            arrayNumsDay.map((e, i) => {
+                                const [color, setColor] = useState()
+                                useEffect(() => {
+                                    new Date(year, month, i - 9).getMonth() === currentMonth ? setColor("rgb(155,220,250)") : setColor("rgb(175,175,175)")
+                                    i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("rgb(255,150,200)") : null
+                                })
+                                return (
+                                    <h2 key={i}
+                                        style={{
+                                            color: color
+                                        }}
+                                    >
+                                        {new Date(year, month + nextMonth, i - firstDayMonth + varianNum).getDate()}
+                                    </h2>
+                                )
+                            })
+                        }
+                    </article>
+
+                    <section className='footer-calendar' >
+                        <h3
+                            onClick={() => setNextMonth(nextMonth - 1)}
+                        >{"<<"}</h3>
+                        <h3
+                            onClick={() => setNextMonth(nextMonth + 1)}
+                        >{">>"}</h3>
+                    </section>
+                </section>
+            </section>
+            <section
+                style={{
+                    zIndex: -10,
+                    top: "0px",
+                    width: "100vw",
+                    height: "100vh",
+                    right: 0
                 }}
             >
-                <article
-                    onClick={() => handleClickCalendar()}
-                >
-                    <h3>X</h3>
-                </article>
-                <article
-                    style={{
-                        width: "100%",
-                        display: "flex",
-                        justifyContent: "space-around"
-                    }}
-                >
-                    <h3
-                        onClick={() => setNextMonth(nextMonth - 1)}
-                    >{"<<"}</h3>
-                    <h3
-                        onClick={() => setNextMonth(nextMonth + 1)}
-                    >{">>"}</h3>
-                </article>
-                <article>
-                    <h3>{nameMonths}</h3>
-                </article>
-                <article>
-                    <h3>{nameYears}</h3>
-                </article>
+                < Canvas>
+                    <Environment
+                        preset='city'
+                    />
+                    <spotLight
+                        position={[0, 0, 255]}
+
+                        intensity={0.1}
+                    />
+
+                    <PerspectiveCamera
+                        makeDefault
+                        position={[0, 0, 250]}
+                        fov={10}
+                    />
+                    <ScrollControls
+                        pages={0}>
+                        <Scroll>
+                            <Flowers />
+                        </Scroll>
+                    </ScrollControls>
+
+                </Canvas>
             </section>
 
-            <section className="obj-calendar">
 
-                <article className='days-calendar'>
-                    {
-                        arrayNamesDay.map((e, i) => {
-      
-                            return (
-
-                                <h3 key={i}>
-                                    {e}
-                                </h3>
-                            )
-                        })
-                    }
-                </article>
-                <article className='nums-calendar'>
-                    {
-                        arrayNumsDay.map((e, i) => {
-                            const [color, setColor] = useState()
-                            useEffect(() => {
-                              new  Date(year, month ,i-9).getMonth()  === currentMonth ?setColor("rgb(155,220,250)") : setColor("rgb(175,175,175)")
-                                i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("rgb(255,150,200)") : null
-                            })
-                            return (
-                                <h2 key={i}
-                                    style={{
-                                        color: color
-                                    }}
-                                >
-                                    {new Date(year, month + nextMonth, i - firstDayMonth + varianNum).getDate()}
-                                </h2>
-                            )
-                        })
-                    }
-                </article>
-            </section>
-
-            <Canvas
-                shadows
-            >
-                <Environment
-                    preset='city'
-                />
-                <PerspectiveCamera
-                    makeDefault
-                    position={[0, 0, 250]}
-                    fov={1}
-                />
-                <pointLight
-                    position={[-5, 5, 5]}
-                    castShadow
-                    intensity={7}
-                    shadow-bias={0.0001}
-                    distance={75}
-                    decay={18}
-                />
-                <ScrollControls
-                    pages={0}>
-                    <Scroll>
-                        <Calendar3d />
-                    </Scroll>
-                </ScrollControls>
-            </Canvas>
 
         </m.main>
+
+
+
     )
 }
 

@@ -19,8 +19,7 @@ const Home = () => {
                 }
             }} 
         >
-            <MainScene />
-          
+            <MainScene />          
         </m.div>
     );
 }

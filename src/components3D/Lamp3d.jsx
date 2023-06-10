@@ -1,16 +1,31 @@
-import React, { useRef } from "react";
-import { Environment, useGLTF } from "@react-three/drei";
+import React, { useEffect, useRef, useState } from "react";
+import { Environment, useGLTF, useCursor } from "@react-three/drei";
 
 export function Lamp(props) {
     const { nodes, materials } = useGLTF("/Lamp.glb");
+    const [intensityLight, setIntensityLight] = useState(0)
+    const [activeLigth, setActiveLigh] = useState(false)
+    const [hover, setHover] = useState(false)
+    useCursor(hover)
+
+    useEffect(() => {
+        activeLigth ?
+            setIntensityLight(2)
+            :
+            setIntensityLight(0)
+    }, [activeLigth])
+
     return (
         <group {...props} dispose={null}
             position={[-0.8, -1.325, -55]}
             rotation={[0.07, -3, 0]}
             scale={0.015}
+            onPointerOver={() => setHover(true)}
+            onPointerOut={() => setHover(false)}
+            onClick={() => setActiveLigh(!activeLigth)}
         >
             <Environment
-                preset="city"
+                preset={"night"}
             />
             <group position={[0, 8.76, 0]}
             >
@@ -103,16 +118,15 @@ export function Lamp(props) {
             <pointLight
                 position={[-20, 30, -50]}
                 castShadow
-                intensity={5}
+                intensity={intensityLight}
                 decay={3.6}
                 distance={1.8}
                 shadow-bias={0.00001}
-
             />
             <pointLight
                 position={[-5, 35, -5]}
                 distance={15}
-                intensity={2}
+                intensity={intensityLight}
                 decay={20}
                 castShadow
                 shadow-bias={0.000001}
@@ -120,9 +134,8 @@ export function Lamp(props) {
             <pointLight
                 position={[-20, 35, 0]}
                 distance={15}
-                intensity={2}
+                intensity={intensityLight}
                 decay={10}
-              
                 shadow-bias={0.000001}
             />
         </group>

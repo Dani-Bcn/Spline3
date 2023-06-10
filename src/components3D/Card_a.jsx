@@ -6,8 +6,7 @@ import { gsap } from "gsap";
 
 export function Card_a(props) {
 
-    const { nodes, materials } = useGLTF("/Card.glb");
-  
+    const { nodes, materials } = useGLTF("/Card.glb");  
   
     const [hover, setHover] = useState(false)
     const aboutRef = useRef()

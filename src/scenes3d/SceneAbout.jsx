@@ -27,12 +27,12 @@ const SceneAbout = (props) => {
                 intensity={1}
                 position={[-50, 0, 100]}
             />
-            <Mobile_prueba
+        <Mobile_prueba
                 handleClick={handleClick}
                 handleClickCalendar={handleClickCalendar}
                 handleClickCalcu={handleClickCalcu}
             >
-            </Mobile_prueba>
+            </Mobile_prueba> 
         </Canvas>
     );
 }

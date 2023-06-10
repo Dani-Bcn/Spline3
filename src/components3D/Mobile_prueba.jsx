@@ -30,7 +30,7 @@ export function Mobile_prueba(props) {
   const fecha = new Date()
   const stringFecha = fecha.toDateString()
   const Nameday = stringFecha.slice(0, 3)
-  const numberDay = stringFecha.slice(9, 10)
+  const numberDay = stringFecha.slice(8, 10)
   useCursor(hovered)
 
   let hours = fecha.getHours()
@@ -138,6 +138,7 @@ export function Mobile_prueba(props) {
       onPointerOut={() => setHovered(false)}
       onClick={(e) => handleWhats(e)}
     >
+     
       <group
         castShadow
         ref={timeRef}

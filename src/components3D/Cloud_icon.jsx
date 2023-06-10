@@ -11,10 +11,9 @@ export function Cloud_icon(props) {
   const [hover, setHover] = useState(false)
   useCursor(hover)
 
-
   useFrame(() => {
-    data.range(0, 2 / 2) > 0.95 ?
 
+    data.range(0, 2 / 2) > 0.95 ?
       gsap.to(groupRef.current.position, {
         x: 0.8,
         duration: 2
@@ -24,7 +23,6 @@ export function Cloud_icon(props) {
         x: 1.2,
         duration: 2
       })
-
   })
 
   return (
@@ -39,7 +37,6 @@ export function Cloud_icon(props) {
       <group rotation={[0, -1.56, 0]}>
         <mesh
           castShadow
-
           geometry={nodes.Esfera_1.geometry}
           material={materials.Mat}
           material-color={"rgb(195,195,195)"}
@@ -184,7 +181,6 @@ export function Cloud_icon(props) {
           position={[0, 0, 0]}
           scale={[80, 80, 50]}
         >
-
           {/* luna */}
           <mesh
             castShadow

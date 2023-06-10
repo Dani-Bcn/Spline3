@@ -108,110 +108,112 @@ Canvas {
   z-index: -1;
 }
 
+.calendar {
+  position: absolute;
+  z-index:5;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  font-family: 'Bruno Ace SC', cursive;
+  background-color: rgba(177, 131, 131, 0.849);
+  backdrop-filter: blur(10px);
+}
+
 .ct-calendar {
   position: absolute;
-  opacity: 0;
-  width: 100vw;
-  height: 100vh;
-  top:1500px;
+  width: 60%;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(207, 207, 207);
-  font-weight: 100px; 
-}
-.obj-calendar {
-  position: absolute;
-  transform: skew(-13.5deg);
-  margin-left: 220px;
-  display: flex;
+  margin: 50px;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 750px;
-  height: 400px;
-  z-index: 5;
 }
 
-.days-calendar{
-  position: absolute;
+
+.head-calendar {
+  top: 0;
   width: 85%;
-  top:40px; 
-  margin-left: -50px;
-  height: 5%;
+  margin-left: 75px;
+  height: 50px;
   display: flex;
-  font-size: 0.6rem;
-  gap: 37px;
+  align-items:center;
+  justify-content: space-around;
+  font-size: 3rem;
+  color: rgb(155,220,250);
 }
 
-.nums-calendar{
-  position: absolute;
-  top:60px; 
-  width: 90%;
-  height: 80%;
+.days-calendar {
+  width: 100%;
+  height: 110px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  font-size: 0.55rem;
+  justify-content: space-around;
+  color: rgb(155,220,250);
+}
+
+.days-calendar h3{
+  width:130px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 1rem;
+}
+.nums-calendar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .nums-calendar h2{
-  width:90px;
-  height: 20px;
-  border-top: 0.5px solid black;
-  border-right: 0.5px solid black;
-  transition: all 0.5s;
+  width:125px;
+  height: 60px;
+  border-top: 1px solid red;
+  border-right: 1px solid red;
+  transition:  all 0.5s;
+  cursor:pointer;
+  margin: 5px;
 }
 .nums-calendar h2:hover{
-  background-color: rgb(85, 86, 114);
-  color: rgb(202, 174, 146)!important;
-  transition: all 0.5s;
-  cursor: pointer;
+  background-color: rgb(97, 85, 63);
+  transition:  all 0.5s;
 }
 
-.select-date{
-  position: absolute;
-  transform: skew(-12deg);
-  top:0px;
-  left:50px;
-  width: 300px;
-  height: 500px;
-  margin: 50px;
+.footer-calendar {
+  width: 100%;
+  height: 100px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  font-size: 3.5rem;
-  color: rgb(7, 46, 56);
-  transition: all 0.5s;
-}
-
-.select-date h3:hover{
+  justify-content: space-around;
+  font-size: 2rem;
   cursor: pointer;
+  color: wheat;
 }
 
-.ct-calculator{
+.ct-calculator {
   overflow: hidden;
   position: absolute;
-  top:-900px;
+  top: -900px;
   width: 100vw;
   height: 100vh;
   background-color: rgb(236, 117, 117);
   backdrop-filter: blur(10px);
 }
 
-.screen{
+.screen {
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: end;
-  top:-260px;
+  top: -260px;
   left: -167px;
   font-size: 3rem;
   width: 310px;
-  height:70px;
+  height: 70px;
   position: absolute;
-  color:rgb(136, 81, 17);
-  font-family: 'Yantramanav', sans-serif; 
+  color: rgb(136, 81, 17);
+  font-family: 'Yantramanav', sans-serif;
 }
