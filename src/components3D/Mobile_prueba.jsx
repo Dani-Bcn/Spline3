@@ -9,6 +9,7 @@ import img_calcu from '/img/calcu.svg'
 import img_email from '/img/email.svg'
 import img_home from '/img/Home.svg'
 
+
 export function Mobile_prueba(props) {
   const { nodes, materials } = useGLTF("/Mobile.glb");
   const navigate = useNavigate()
@@ -137,8 +138,7 @@ export function Mobile_prueba(props) {
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
       onClick={(e) => handleWhats(e)}
-    >
-     
+    >     
       <group
         castShadow
         ref={timeRef}

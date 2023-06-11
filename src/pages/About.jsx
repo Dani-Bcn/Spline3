@@ -17,6 +17,7 @@ const About = () => {
 
     const handleClick = ((e) => {
         setNameApp(e.object.name)
+
     })
     const [activeCalendar, setActiveCalendar] = useState(false)
     const handleClickCalendar = ((e) => {

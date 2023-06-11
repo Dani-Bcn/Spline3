@@ -36,7 +36,7 @@ export function Lamp(props) {
                     position={[0, 8.76, 0]}
                 >
                     <meshStandardMaterial
-                        color={"rgb(220,125,150)"}
+                        color={"rgb(20,125,50)"}
                         roughness={0.5}
                         metalness={0.5}
                     />
@@ -55,7 +55,7 @@ export function Lamp(props) {
                     rotation={[0.01, 0.02, -0.15]}
                 >
                     <meshStandardMaterial
-                        color={"rgb(220,125,150)"}
+                        color={"rgb(20,125,150)"}
                         roughness={0.5}
                         metalness={0.5}
                     />
@@ -105,12 +105,12 @@ export function Lamp(props) {
                 castShadow
                 receiveShadow
                 geometry={nodes.Cone.geometry}
-                material={nodes.Cone.material}
+            
                 position={[-16.4, 33.64, 0]}
                 rotation={[0, 0, 0.2]}
             >
                 <meshStandardMaterial
-                    color={"rgb(10,15,50)"}
+                    color={"rgb(250,15,50)"}
                     roughness={0.5}
                     metalness={0.2}
                 />

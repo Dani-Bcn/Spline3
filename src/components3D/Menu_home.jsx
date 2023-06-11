@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export function Menu_home(props) {
 
   const [hover, setHover] = useState(false)
-  const { nodes, materials } = useGLTF("/Object_3d");
+  const { nodes, materials } = useGLTF("/Object_3d.glb");
   const aboutRef = useRef()
   const projectsRef = useRef()
   const webRef = useRef()
