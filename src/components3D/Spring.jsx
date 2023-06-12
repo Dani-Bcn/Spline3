@@ -1,32 +1,46 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { Environment, useGLTF, useScroll } from "@react-three/drei";
 import { Plant2 } from "./Plant2";
+import { useFrame } from "@react-three/fiber";
 
 export function Spring(props) {
   const { nodes, materials } = useGLTF("/flowers.glb");
+
+  const solRef = useRef()
+  const data = useScroll()
+
+  useFrame(() => {
+    solRef.current.rotation.z += 0.0009
+  })
+
   return (
-    <group 
-    {...props} dispose={null}
+    <group
+      {...props} dispose={null}
       scale={0.03}
-      position={[1.8,-0.4,0]}
-      
-      rotation={[0,-0.1,0]}
+      position={[1.8, -0.4, 0]}
+
+      rotation={[0, -0.1, 0]}
     >
-      <Plant2/>
-      <pointLight
-        position={[20,40,40]}
-        intensity={1}        
+      <Plant2 />
+      <Environment
+        preset="city"
       />
-       <group 
-       scale={1.8}
-       position={[17.882, 7.011, 2.55]}>
+      <pointLight
+        position={[10, 10, 50]}
+        intensity={0.3}
+      />
+      <group
+        scale={1.8}
+        position={[17.882, 7.011, 2.55]}>
         <group position={[0.369, -1.462, 0.413]}>
           <mesh
             castShadow
             receiveShadow
             geometry={nodes["Cube-maceta"].geometry}
             material={materials.maceta}
-           
+            material-metalness={1}
+            material-roughness={0.6}
+
           />
           <mesh
             castShadow
@@ -46,7 +60,7 @@ export function Spring(props) {
               geometry={nodes.Sphere_0.geometry}
               material={materials.Petalos}
               position={[0, 1.724, 0]}
-              material-roughness={0.55}
+              material-roughness={0.4}
             />
             <mesh
               castShadow
@@ -346,9 +360,9 @@ export function Spring(props) {
           />
         </group>
       </group>
-      <group 
-      scale={1.8}
-      position={[-17.552, 7.011, 2.55]}>
+      <group
+        scale={1.8}
+        position={[-17.552, 7.011, 2.55]}>
         <group position={[0.378, -1.462, 0.413]}>
           <mesh
             castShadow
@@ -494,7 +508,7 @@ export function Spring(props) {
             />
           </group>
           <group position={[0, 0, -0.042]}>
-          
+
           </group>
           <mesh
             castShadow
@@ -650,6 +664,7 @@ export function Spring(props) {
               position={[-1.28, 0.416, 0]}
               rotation={[0, 0, 1.257]}
               material-color="rgb(250,250,150)"
+              material-metalness={0}
             />
           </group>
           <group position={[0, 0, -0.037]}>
@@ -731,25 +746,26 @@ export function Spring(props) {
           receiveShadow
           geometry={nodes.Extrude1_1.geometry}
           material={materials.madera}
-      
+
         />
       </group>
       <group position={[0, 7.474, 0.853]} rotation={[0, 0, -Math.PI / 2]}>
         <mesh
-       
+
           geometry={nodes.Extrude_8.geometry}
           material={materials.madera}
           material-color="rgb(150,150,250)"
-          material-metalness={1}
+          material-metalness={1.5}
           material-roughness={0.7}
         />
       </group>
       <mesh
-      scale={[8,8,6]}
+        ref={solRef}
+        scale={[8, 8, 4]}
         geometry={nodes.sol.geometry}
         material={materials.Petalos}
         position={[20.504, 40, 0.607]}
-             
+        rotation={[0, -0.2, 0]}
       />
     </group>
   );

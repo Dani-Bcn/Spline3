@@ -368,7 +368,12 @@ export function Plant2(props) {
             position={[15.38, 78.04, -2.08]}
             rotation={[-3.13, -0.53, -2.87]}
             scale={0.3}
-          />
+            >
+                <meshStandardMaterial
+                    color="green"
+                />
+
+          </mesh>
           <mesh
             castShadow
             receiveShadow
@@ -469,18 +474,12 @@ export function Plant2(props) {
             scale={0.88}
             >
             <meshStandardMaterial
-                color="rgb(100,220,100)"
+                color="rgb(100,100,50)"
+                roughness={0.8}
             />
 
       </mesh>
         </group>
-        <OrthographicCamera
-          makeDefault={false}
-          far={100000}
-          near={0}
-          position={[1005.46, 295.3, -294.34]}
-          rotation={[-2.21, 1.31, 2.23]}
-        />
       </group>
     </group>
   );

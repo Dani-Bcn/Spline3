@@ -116,7 +116,7 @@ Canvas {
   justify-content: space-between;
   flex-direction: column;
   font-family: 'Bruno Ace SC', cursive;
-  background-color: rgba(219, 218, 226, 0.979);
+  background-color: rgb(182, 168, 168);
   backdrop-filter: blur(10px);
 }
 
@@ -139,7 +139,7 @@ Canvas {
   align-items:center;
   justify-content: space-around;
   font-size: 3rem;
-  color: rgb(250, 251, 200);
+  color: rgb(155,220,250);
 }
 
 .days-calendar {
@@ -149,7 +149,7 @@ Canvas {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  color: rgb(250, 251, 200);
+  color: rgb(155,220,250);
 }
 
 .days-calendar h3{
@@ -158,7 +158,7 @@ Canvas {
   display: flex;
   align-items: center;
   justify-content: start;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 .nums-calendar {
   width: 100%;
@@ -178,7 +178,7 @@ Canvas {
   margin: 5px;
 }
 .nums-calendar h2:hover{
-  background-color: rgb(97, 85, 63);
+  background-color: rgba(167, 216, 216, 0.692);
   transition:  all 0.5s;
 }
 
@@ -190,7 +190,7 @@ Canvas {
   justify-content: space-around;
   font-size: 2rem;
   cursor: pointer;
-  color: rgb(250, 251, 200);
+  color: wheat;
 }
 
 .ct-calculator {

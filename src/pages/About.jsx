@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SceneAbout from '../scenes3d/SceneAbout';
 import { motion as m } from 'framer-motion'
-import Calendar from '../components/Calendar';
 import Comp_calculator from '../components/Comp_calculator';
+import Comp_calendar from '../components/Comp_calendar';
 
 const About = () => {
 
@@ -36,15 +36,18 @@ const About = () => {
         >
             <SceneAbout
                 handleClick={handleClick}
-                handleClickCalendar={handleClickCalendar}
+               handleClickCalendar={handleClickCalendar}
                 handleClickCalcu={handleClickCalcu}
             />
+            <Comp_calendar  
+                activeCalendar={activeCalendar}
+            handleClickCalendar={handleClickCalendar}/>
             <m.div className='back-about'
                 animate={{
                     x: [-2000, 0],
                     opacity: [0, 0, 0, 1],
                     transition: {
-                        delay: 2,
+                        delay: 1,
                         ease: "backOut",
                         duration: 1
                     }
@@ -55,22 +58,17 @@ const About = () => {
                     opacity: [0, 0,0,0,1],
                     top: [850, -100],
                     transition: {
+                        delay: 1,
                         ease: "circOut",
-                        delay: 2,
-                        duration: 1.5
+                        duration: 1
                     }
                 }}
             >
                 <h1>Click Me !!!</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quibusdam iure error dolorem itaque vel aliquam vero neque soluta cum minus.</p>
-               
-            </m.article>
-         
-            <Calendar handleClickCalendar={handleClickCalendar} activeCalendar={activeCalendar} />
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quibusdam iure error dolorem itaque vel aliquam vero neque soluta cum minus.</p>               
+            </m.article>         
 
             <Comp_calculator handleClickCalcu={handleClickCalcu} activeCalcu={activeCalcu} />
-
-
         </m.main>
     );
 }

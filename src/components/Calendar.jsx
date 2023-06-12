@@ -4,6 +4,8 @@ import { motion as m } from 'framer-motion'
 import { Spring } from '../components3D/Spring';
 import { Summer } from '../components3D/Summer';
 import { Canvas } from '@react-three/fiber';
+import { Autumn } from '../components3D/Autumn';
+import { Winter } from '../components3D/Winter';
 
 const Calendar = (props) => {
 
@@ -78,28 +80,7 @@ const Calendar = (props) => {
         month === 6 && month === 0 ? setVariantNum(2) : null
     }, [nameMonths])
 
-    const variantsActive = {
-        open: {
-            clipPath: "circle(71% at 50% 50%)",
-            opacity: [0, 1],
-            top: [0, 0],
-            left: [0, 0],
-            transition: {
-                duration: 1,
-                ease: "backOut"
-            }
-        },
-        close: {
-            clipPath: "circle(1% at 50% 50%)",
-            opacity: [1, 0.9],
-            top: [0, 400],
-            left: [0, 300],
-            transition: {
-                duration: 0.5,
-                ease: "circIn"
-            }
-        }
-    }
+   
     const pageClose = (() => {
         setNextMonth(nextMonth - nextMonth)
         handleClickCalendar()
@@ -107,12 +88,7 @@ const Calendar = (props) => {
 
     return (
 
-        <m.main className="calendar"
-            variants={variantsActive}
-            animate={
-                activeCalendar ? "open" : "close"
-            }
-        >
+        <m.main className="calendar">
             <h3
                 style={{
                     position: "absolute",
@@ -261,7 +237,7 @@ const Calendar = (props) => {
                         <ScrollControls
                             pages={0}>
                             <Scroll>
-                                <Spring />
+                                <Autumn />
                             </Scroll>
                         </ScrollControls>
                     </Canvas>
@@ -282,7 +258,7 @@ const Calendar = (props) => {
                         <ScrollControls
                             pages={0}>
                             <Scroll>
-                                <Spring />
+                                <Winter />
                             </Scroll>
                         </ScrollControls>
                     </Canvas>

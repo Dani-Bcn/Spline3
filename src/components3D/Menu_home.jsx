@@ -137,8 +137,7 @@ export function Menu_home(props) {
           <mesh
             ref={aboutRef}
             castShadow
-            receiveShadow
-          
+            receiveShadow          
             geometry={nodes.Rectangle_2.geometry}
             material={nodes.Rectangle_2.material}
             position={[0, 120, -16.57]}
@@ -235,13 +234,13 @@ export function Menu_home(props) {
         creaseAngle={0.4}
       >
         <MeshReflectorMaterial
-          blur={[300, 1500]}
+          blur={[1700, 500]}
           resolution={2048}
           mixBlur={5}
           mixStrength={50}
           roughness={1.9}
-          depthScale={1.8}
-          minDepthThreshold={0.4}
+          depthScale={1.9}
+          minDepthThreshold={0.8}
           maxDepthThreshold={1.9}
           color="rgb(30,20,20)"
           metalness={0.5}

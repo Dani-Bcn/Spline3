@@ -75,10 +75,8 @@ export function Card_a(props) {
                             blur={[1000, 2000]}
                             mixBlur={5}
                             metalness={0.3}
-                            color={"rgb(150,150,255)"}
-                       
-                            roughness={1.2}
-            
+                            color={"rgb(150,150,255)"}                       
+                            roughness={1.2}            
                         />
                     </mesh>
                 </group>
@@ -97,8 +95,7 @@ export function Card_a(props) {
                         opacity={1}
                         mixBlur={5}
                         metalness={0.2}
-                        color={"rgb(170,120,120)"}
-          
+                        color={"rgb(170,120,120)"}          
                         roughness={1.2}
            
                     />
