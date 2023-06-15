@@ -132,7 +132,7 @@ Canvas {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-size: 3rem;
+  font-size: 1rem;
   color: rgb(155, 220, 250);
 }
 
@@ -170,6 +170,7 @@ Canvas {
   border-right: 1px solid red;
   transition: all 0.5s;
   cursor: pointer;
+  font-size: 1rem;
   margin: 5px;
 }
 
@@ -206,7 +207,7 @@ Canvas {
   justify-content: end;
   top: -260px;
   left: -167px;
-  font-size: 3rem;
+  font-size: 1rem;
   width: 310px;
   height: 70px;
   position: absolute;
