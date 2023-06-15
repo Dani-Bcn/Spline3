@@ -144,11 +144,10 @@ Canvas {
   align-items: center;
   justify-content: flex-start;
   color: rgb(155, 220, 250);
-  gap: 80px;
 }
 
 .days-calendar h3 {
-  width: 50px;
+ 
   height: 20px;
   display: flex;
   align-items: center;
