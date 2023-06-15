@@ -114,14 +114,7 @@ Canvas {
   backdrop-filter: blur(10px);
 }
 
-.ct-calendar {
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  display: flex;
-  margin: 50px 25px;
-  flex-direction: column;
-}
+
 
 
 .head-calendar {
@@ -141,6 +134,7 @@ Canvas {
   height: 75%;
   background-color: red;
   display: flex;
+  margin: 50px 25px;
   flex-direction: column;
 }
 .days-calendar{
