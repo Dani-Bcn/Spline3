@@ -123,12 +123,11 @@ Canvas {
   flex-direction: column;
 }
 
-
 .head-calendar {
   top: 0;
   width: 85%;
   margin-left: 75px;
-  height: 200px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: space-around;
