@@ -184,7 +184,7 @@ Canvas {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  font-size: 2rem;
+  font-size: 1rem;
   cursor: pointer;
   color: wheat;
 }
@@ -236,8 +236,8 @@ Canvas {
 .ct-email textarea{
   position: absolute;
   z-index: 1;
-  width: 400px;
-  height: 400px;
+  width: 100px;
+  height: 100px;
 
 }
 
@@ -271,5 +271,5 @@ Canvas {
   width: 200px;
   left: 50px;
   color: rgb(106, 129, 158);
-  font-size: 6rem;
+  font-size: 3rem;
 }
