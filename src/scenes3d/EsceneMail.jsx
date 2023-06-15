@@ -44,7 +44,7 @@ const EmailForm = (props) => {
     console.log(setMessage)
 
   })
-  const funcSend=(()=>{
+  const funcSend = (() => {
     setActiveAnimation(true)
   })
 
@@ -67,14 +67,14 @@ const EmailForm = (props) => {
           />
         </label>
         <br />
-       
-      </form>
-      <button className="btn-submit"
-        /*   type="submit" */
-            onClick={()=> funcSend()}
-          >
+        <button className="btn-submit"
+          /*   type="submit" */
+          onClick={() => funcSend()}
+        >
           Send
         </button>
+      </form>
+
       <section>
         <Canvas
           style={{
@@ -93,9 +93,9 @@ const EmailForm = (props) => {
             fov={1}
             position={[5, 0, 200]}
           />
-          <Post3d 
-          activeAnimation={activeAnimation}
-          setActiveAnimation={setActiveAnimation}
+          <Post3d
+            activeAnimation={activeAnimation}
+            setActiveAnimation={setActiveAnimation}
           />
         </Canvas>
       </section>
