@@ -137,7 +137,7 @@ Canvas {
 }
 
 .ct-calendar{
-  width: 50%;
+  width: 62%;
   height: 75%;
   background-color: red;
   display: flex;
@@ -170,6 +170,7 @@ Canvas {
 .nums-calendar h3:hover {
   background-color: rgba(167, 216, 216, 0.692);
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .footer-calendar {
