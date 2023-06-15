@@ -193,6 +193,7 @@ Canvas {
   display: flex;
   align-items: center;
   justify-content: end;
+  font-size: 0.8rem;
   top: -220px;
   left: -167px;
   width: 310px;
