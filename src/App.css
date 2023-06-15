@@ -127,6 +127,7 @@ Canvas {
 .head-calendar {
   top: 0;
   width: 85%;
+  height: 100px;
   margin-left: 75px;
   height: 150px;
   display: flex;
