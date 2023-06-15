@@ -77,7 +77,7 @@ Canvas {
   justify-content: center;
   margin-left: 100px;
   font-family: "Bruno";
-  font-size: 8rem;
+  font-size: 1rem;
 }
 
 .about p {
@@ -88,7 +88,7 @@ Canvas {
   justify-content: start;
   margin-left: 100px;
   font-family: "Bruno";
-  font-size: 3rem;
+  font-size: 1rem;
 }
 
 .back-about {
