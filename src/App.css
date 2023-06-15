@@ -144,7 +144,7 @@ Canvas {
   align-items: center;
   justify-content: flex-start;
   color: rgb(155, 220, 250);
-  gap: 50px;
+  gap: 80px;
 }
 
 .days-calendar h3 {
