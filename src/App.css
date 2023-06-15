@@ -9,12 +9,6 @@
 
 }
 
-@font-face {
-  font-family: "Moguinne";
-  src: url("./fonts/MoguineSerif_PERSONAL_USE_ONLY.otf");
-
-}
-
 body {
   overflow: hidden;
   background-color: rgb(24, 24, 24);
@@ -93,7 +87,7 @@ Canvas {
   align-items: center;
   justify-content: start;
   margin-left: 100px;
-  font-family: "Moguine";
+  font-family: "Bruno";
   font-size: 3rem;
 }
 
@@ -110,7 +104,7 @@ Canvas {
 
 .calendar {
   position: absolute;
-  z-index:5;
+  z-index: 5;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -136,10 +130,10 @@ Canvas {
   margin-left: 75px;
   height: 50px;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: space-around;
   font-size: 3rem;
-  color: rgb(155,220,250);
+  color: rgb(155, 220, 250);
 }
 
 .days-calendar {
@@ -149,17 +143,18 @@ Canvas {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  color: rgb(155,220,250);
+  color: rgb(155, 220, 250);
 }
 
-.days-calendar h3{
-  width:130px;
+.days-calendar h3 {
+  width: 130px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: start;
   font-size: 1rem;
 }
+
 .nums-calendar {
   width: 100%;
   display: flex;
@@ -168,18 +163,19 @@ Canvas {
   justify-content: space-around;
 }
 
-.nums-calendar h2{
-  width:125px;
+.nums-calendar h2 {
+  width: 125px;
   height: 60px;
   border-top: 1px solid red;
   border-right: 1px solid red;
-  transition:  all 0.5s;
-  cursor:pointer;
+  transition: all 0.5s;
+  cursor: pointer;
   margin: 5px;
 }
-.nums-calendar h2:hover{
+
+.nums-calendar h2:hover {
   background-color: rgba(167, 216, 216, 0.692);
-  transition:  all 0.5s;
+  transition: all 0.5s;
 }
 
 .footer-calendar {
@@ -216,4 +212,64 @@ Canvas {
   position: absolute;
   color: rgb(136, 81, 17);
   font-family: 'Yantramanav', sans-serif;
+}
+
+.ct-email {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  position: "absolute";
+  color: rgba(245, 222, 179, 0);
+  width: 100vw;
+  height: 100vh;
+  font-size: 6rem;
+  font-family: Bruno Ace SC;
+  background-color: rgb(10, 10, 10);
+}
+
+.ct-email form {
+  position: absolute;
+  top:200px;
+  left: 600px;
+}
+
+.ct-email textarea{
+  position: absolute;
+  z-index: 1;
+  width: 400px;
+  height: 400px;
+
+}
+
+.ct-mail section{
+  width: 100px;
+  height: 100px;
+}
+
+.btn-close{
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100px;  
+  z-index: 1;
+}
+
+.btn-submit{
+  position: absolute;
+  top: 250px;
+  width: 100px;
+  height: 50px; 
+  border-radius: 5px; 
+  z-index: 2;
+  background-color: red;
+}
+
+.ct-email h3 {
+  position: absolute;
+  z-index: 1;
+  top: 200px;
+  width: 200px;
+  left: 50px;
+  color: rgb(106, 129, 158);
+  font-size: 6rem;
 }

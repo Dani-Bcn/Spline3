@@ -9,13 +9,13 @@ import img_calcu from '/img/calcu.svg'
 import img_email from '/img/email.svg'
 import img_home from '/img/Home.svg'
 
-
 export function Mobile_prueba(props) {
   const { nodes, materials } = useGLTF("/Mobile.glb");
   const navigate = useNavigate()
   const { handleClick } = props
   const { handleClickCalendar } = props
   const { handleClickCalcu } = props
+  const {handleClickEmail} = props
   const [hovered, setHovered] = useState(false)
   const textureWhats = useTexture(img_whats)
   const textureCrome = useTexture(img_crome)
@@ -221,6 +221,9 @@ export function Mobile_prueba(props) {
           />
         </mesh>
         <mesh
+            onPointerOver={() => setHovered(true)}
+            onPointerOut={() => setHovered(false)}
+            onClick={(e) => handleClickEmail(e)}
           name="email"
           position={[2.5, -2, 0.5]}
           scale={[0.9, 0.85, 0.5]}
@@ -235,7 +238,7 @@ export function Mobile_prueba(props) {
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
           onClick={(e) => handleClickCalendar(e)}
-          name="calendar"
+          name="calerdar"
           position={[-2.5, -1, 0.5]}
           scale={[0.9, 0.85, 0.05]}
         >

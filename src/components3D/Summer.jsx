@@ -135,7 +135,7 @@ export function Summer(props) {
         rotation={[0, 0, 0.76]}
       >
         <meshStandardMaterial
-          color={"rgb(200,120,200)"}
+          color={"rgb(200,120,20)"}
           roughness={0.1}
         />
       </mesh>

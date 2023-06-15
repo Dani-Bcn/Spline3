@@ -12,6 +12,7 @@ const SceneAbout = (props) => {
     const { handleClick } = props
     const { handleClickCalendar } = props
     const { handleClickCalcu } = props
+    const {handleClickEmail} = props
 
     return (
         <Canvas>
@@ -32,6 +33,7 @@ const SceneAbout = (props) => {
                 handleClick={handleClick}
                 handleClickCalendar={handleClickCalendar}
                 handleClickCalcu={handleClickCalcu}
+                handleClickEmail={handleClickEmail}
             >
             </Mobile_prueba>
         </Canvas>

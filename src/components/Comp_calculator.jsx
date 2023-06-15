@@ -10,20 +10,33 @@ const Comp_calculator = (props) => {
     const { activeCalcu } = props
    
 
-    const varianstCalcu = {
+   
+    const variantsActive = {
         open: {
-            y: 900,
-            opacity:[0,1]
+            clipPath: "circle(71% at 50% 50%)",
+            opacity: [0, 1],
+            top: [0, 0],
+            left: [0, 0],
+            transition: {
+                duration: 1,
+                ease: "backOut"
+            }
         },
         close: {
-            y: -900,
-            opacity:[1,0,0,0]
+            clipPath: "circle(0.001% at 50% 50%)",
+            opacity: [1, 0.8],
+            top: [0, 400],
+            left: [0, 300],
+            transition: {
+                duration: 0.5,
+                ease: "circIn" 
+            }
         }
     }
 
     return (
         <m.div className='ct-calculator'
-            variants={varianstCalcu}
+            variants={variantsActive}
             animate={
                 activeCalcu ? "open" : "close"
             }

@@ -4,14 +4,15 @@ import { motion as m } from 'framer-motion'
 import { Spring } from '../components3D/Spring';
 import { Summer } from '../components3D/Summer';
 import { Canvas } from '@react-three/fiber';
-import { Autumn } from '../components3D/Autumn';
 import { Winter } from '../components3D/Winter';
+import { Autumn } from '../components3D/Autumn'
+
+
 
 const Calendar = (props) => {
 
     const [nextMonth, setNextMonth] = useState(0)
     const { handleClickCalendar } = props
-    const { activeCalendar } = props
     const [hover, setHover] = useState(false)
     const currentData = new Date()
     const currentYear = currentData.getFullYear()
@@ -32,7 +33,7 @@ const Calendar = (props) => {
     const [activeWinter, setActiveWinter] = useState(false)
     const [activeAutumn, setActiveAutumn] = useState(false)
     const [namesSeasons, setNamesSeasons] = useState()
-    console.log(currentMonth)
+  
     useCursor(hover)
 
     let season = (Number((data.getMonth().toString()) + (data.getDate())))
@@ -80,7 +81,7 @@ const Calendar = (props) => {
         month === 6 && month === 0 ? setVariantNum(2) : null
     }, [nameMonths])
 
-   
+
     const pageClose = (() => {
         setNextMonth(nextMonth - nextMonth)
         handleClickCalendar()
@@ -179,7 +180,7 @@ const Calendar = (props) => {
                         activeSpring ? "open" : "close"
                     }
                 >
-                    < Canvas>                       
+                    < Canvas>
                         <PerspectiveCamera
                             makeDefault
                             position={[0, 0, 15]}
@@ -203,7 +204,7 @@ const Calendar = (props) => {
                     }
                 >
                     < Canvas>
-                      
+
                         <PerspectiveCamera
                             makeDefault
                             position={[0, 0, 15]}
@@ -227,8 +228,6 @@ const Calendar = (props) => {
                     }
                 >
                     < Canvas>
-                  
-                      
                         <PerspectiveCamera
                             makeDefault
                             position={[0, 0, 15]}
@@ -249,7 +248,7 @@ const Calendar = (props) => {
                     }
                 >
                     < Canvas>
-                       
+
                         <PerspectiveCamera
                             makeDefault
                             position={[0, 0, 15]}

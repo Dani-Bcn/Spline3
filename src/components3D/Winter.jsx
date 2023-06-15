@@ -1,20 +1,19 @@
 import React, { useRef } from "react";
-import { useGLTF, OrthographicCamera, Environment } from "@react-three/drei";
+import { Environment, useGLTF } from "@react-three/drei";
 
 export function Winter(props) {
   const { nodes, materials } = useGLTF("/Winter.glb");
   return (
     <group {...props} dispose={null}
-        scale={0.004}
-        position={[1.8,-0.3,0]}
-        rotation={[0.1,-3.4,0]}
+      scale={0.0035}
+      position={[1.6,-0.45,0]}
+      rotation={[0.1,2.9,0]}    
     >
-        <Environment
-            preset="city"
-        />
- <group position={[-127.21, 70.78, -53.6]} rotation={[0.11, -0.51, 0.28]}>
+      <Environment
+        preset="city"
+      />
+      <group position={[-127.21, 70.78, -53.6]} rotation={[0.11, -0.51, 0.28]}>
         <mesh
-        scale={[1,1,1]}
           castShadow
           receiveShadow
           geometry={nodes["Sweep1-Mat1"].geometry}
@@ -29,7 +28,6 @@ export function Winter(props) {
       </group>
       <group position={[11.7, 176.6, -23.19]} rotation={[0.3, 0, 0]}>
         <mesh
-        scale={[1,1,1]}
           castShadow
           receiveShadow
           geometry={nodes.Sweep_1.geometry}
@@ -43,15 +41,6 @@ export function Winter(props) {
         material={materials["Mat.3"]}
         position={[-4.08, 175.89, -79.08]}
         rotation={[-0.01, 1.44, -0.07]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Sphere5.geometry}
-        material={materials["Mat.2"]}
-        position={[-11.47, 109.98, -54.07]}
-        rotation={[0.64, -1.07, 0.57]}
-        scale={[1.05, 0.86, 1]}
       />
       <mesh
         castShadow
@@ -74,10 +63,20 @@ export function Winter(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Extrude.geometry}
-        material={nodes.Extrude.material}
-        position={[40, -78.95, 0]}
-        scale={[0.9,1,1.5]}
+        geometry={nodes.Sphere5.geometry}
+        material={materials["Mat.2"]}
+        position={[-11.47, 109.98, -54.07]}
+        rotation={[0.64, -1.07, 0.57]}
+        scale={[1.05, 0.86, 1]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Sphere3.geometry}
+        material={materials["Mat.2"]}
+        position={[-21.57, 195.03, -44.04]}
+        rotation={[0.64, -1.07, 0.57]}
+        scale={[1.05, 0.86, 1]}
       />
       <mesh
         castShadow
@@ -90,11 +89,9 @@ export function Winter(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Sphere3.geometry}
-        material={materials["Mat.2"]}
-        position={[-21.57, 195.03, -44.04]}
-        rotation={[0.64, -1.07, 0.57]}
-        scale={[1.05, 0.86, 1]}
+        geometry={nodes.Extrude.geometry}
+        material={nodes.Extrude.material}
+        position={[-5.55, -78.95, 0]}
       />
       <mesh
         castShadow
@@ -125,11 +122,11 @@ export function Winter(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Lathe.geometry}
-        material={materials["Mat.4"]}
-        position={[-12.15, 222.12, 7.66]}
-        rotation={[0.48, -1.13, 0.35]}
-        scale={[1.1,1.2,1.2]}
+        geometry={nodes.Sphere2.geometry}
+        material={materials["Mat.1"]}
+        position={[-4.7, 176.63, 2.1]}
+        rotation={[0, -1.15, 0]}
+        scale={[1.05, 0.86, 1]}
       />
       <mesh
         castShadow
@@ -143,11 +140,10 @@ export function Winter(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Sphere2.geometry}
-        material={materials["Mat.1"]}
-        position={[-4.7, 176.63, 2.1]}
-        rotation={[0, -1.15, 0]}
-        scale={[1.05, 0.86, 1]}
+        geometry={nodes.Lathe.geometry}
+        material={materials["Mat.4"]}
+        position={[-12.15, 222.12, 7.66]}
+        rotation={[0.48, -1.13, 0.35]}
       />
     </group>
   );
