@@ -24,7 +24,7 @@ const Calendar = (props) => {
     const day = data.getDate()
     const firstDayMonth = new Date(year, month, 1).getDay();
     const arrayNumsDay = new Array(42).fill()
-    const arrayNamesDay = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    const arrayNamesDay = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     const [varianNum, setVariantNum] = useState(-5)
     let nameMonths = data.toDateString().slice(4, 7)
     let nameYears = data.toDateString().slice(11, 15)
