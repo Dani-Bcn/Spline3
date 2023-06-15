@@ -193,9 +193,8 @@ Canvas {
   display: flex;
   align-items: center;
   justify-content: end;
-  top: -260px;
+  top: -220px;
   left: -167px;
-  font-size: 1rem;
   width: 310px;
   height: 70px;
   position: absolute;
