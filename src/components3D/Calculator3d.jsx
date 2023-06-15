@@ -25,7 +25,7 @@ export function Calculator3d(props) {
     }
 
     setPosition(position => position - 0.333)
-    num.length > 6 ? setScaleNums(scaleNums - 3.5) : setScaleNums(50)
+    num.length > 15 ? setScaleNums(scaleNums - 3.5) : setScaleNums(50)
     console.log(activeInput)
 
     if (e.object.name === "=") {
