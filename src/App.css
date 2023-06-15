@@ -114,13 +114,21 @@ Canvas {
   backdrop-filter: blur(10px);
 }
 
+.ct-calendar {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  margin: 50px;
+  flex-direction: column;
+}
 
 
 .head-calendar {
   top: 0;
   width: 85%;
   margin-left: 75px;
-  height: 175px;
+  height: 200px;
   display: flex;
   align-items: center;
   justify-content: space-around;
