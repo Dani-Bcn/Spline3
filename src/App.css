@@ -119,7 +119,7 @@ Canvas {
   width: 60%;
   height: 100%;
   display: flex;
-  margin: 50px;
+  margin: 25px 50px;
   flex-direction: column;
 }
 
