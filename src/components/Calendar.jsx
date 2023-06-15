@@ -93,7 +93,7 @@ const Calendar = (props) => {
             <h3
                 style={{
                     position: "absolute",
-                    fontSize: "2rem",
+                    fontSize: "0.5rem",
                     margin: 50,
                     cursor: "pointer",
                     zIndex: 5,
