@@ -93,7 +93,7 @@ const Calendar = (props) => {
             <h3
                 style={{
                     position: "absolute",
-                    fontSize: "0.5rem",
+                    fontSize: "1rem",
                     margin: 50,
                     cursor: "pointer",
                     zIndex: 5,
@@ -127,13 +127,13 @@ const Calendar = (props) => {
                                     i === day + 9 && nameMonths === currentData.toDateString().slice(4, 7) ? setColor("rgb(21,250,250)") : null
                                 })
                                 return (
-                                    <h2 key={i}
+                                    <h3 key={i}
                                         style={{
                                             color: color
                                         }}
                                     >
                                         {new Date(year, month + nextMonth, i - firstDayMonth + varianNum).getDate()}
-                                    </h2>
+                                    </h3>
                                 )
                             })
                         }

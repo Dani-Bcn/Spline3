@@ -128,53 +128,46 @@ Canvas {
   top: 0;
   width: 85%;
   margin-left: 75px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 2rem;
+  color: rgb(155, 220, 250);
+}
+
+.ct-calendar{
+  width: 50%;
+  height: 75%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}
+.days-calendar{
+  width: 100%;
   height: 50px;
   display: flex;
-  align-items: center;
   justify-content: space-around;
-  font-size: 1rem;
-  color: rgb(155, 220, 250);
+  
 }
-
-.days-calendar {
+.nums-calendar{
   width: 100%;
-  height: 80px;
+  height: 50px;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-around;
-  color: rgb(155, 220, 250);
-}
-
-.days-calendar h3 {
- 
-  height: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  font-size: 1rem;
-}
-
-.nums-calendar {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: space-around;
 }
-
-.nums-calendar h2 {
-  width: 120px;
-  height: 40px;
-  border-top: 1px solid red;
-  border-right: 1px solid red;
-  transition: all 0.5s;
-  cursor: pointer;
-  font-size: 1rem;
-  margin: 5px;
+.nums-calendar h3{
+  display: flex;
+  justify-content: space-around;
+  width: 100px;
+  height: 25px;
+  margin: 10px;
+  border-top: 0.5px solid black;
+  border-right: 0.5px solid black;
 }
 
-.nums-calendar h2:hover {
+.nums-calendar h3:hover {
   background-color: rgba(167, 216, 216, 0.692);
   transition: all 0.5s;
 }
@@ -182,6 +175,7 @@ Canvas {
 .footer-calendar {
   width: 100%;
   height: 100px;
+  margin-top:230px;
   display: flex;
   align-items: center;
   justify-content: space-around;
