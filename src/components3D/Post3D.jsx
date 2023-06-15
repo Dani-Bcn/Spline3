@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useGLTF, MeshReflectorMaterial, OrbitControls } from "@react-three/drei";
+import { useGLTF, MeshReflectorMaterial } from "@react-three/drei";
 import { gsap } from "gsap";
 
 
@@ -11,9 +11,9 @@ export function Post3d(props) {
     console.log(activeAnimation)
 
     useEffect(() => {
-        if (activeAnimation) {
+        if (!activeAnimation) {
             gsap.to(topRef.current.rotation, {
-                x: -122.50,
+                x: -120,
                 y: 0,
                 z: 0
             })
@@ -23,8 +23,19 @@ export function Post3d(props) {
                 z: 81
             })
         }
-
-      
+        setTimeout(() => {
+            setActiveAnimation(false)
+            gsap.to(topRef.current.rotation, {
+                x: -122.56,
+                y: 0,
+                z: 0
+            })
+            gsap.to(topRef.current.position, {
+                x: 0,
+                y: -40,
+                z: 82
+            })
+        }, 1000)
     }, [activeAnimation])
 
     return (

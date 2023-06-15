@@ -41,7 +41,6 @@ export function Calculator3d(props) {
       setNum("")
       setPosition(1.5)
     }
-
   })
 
   return (

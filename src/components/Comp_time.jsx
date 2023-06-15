@@ -8,7 +8,6 @@ const CompTime = () => {
     const day = hoy.slice(8, 11)
     const year = hoy.slice(13, 15)
 
-
     return (
         <div>
             

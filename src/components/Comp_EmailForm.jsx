@@ -41,12 +41,10 @@ const Comp_EmailForm = (props) => {
                 ease: "easeIn"
             }}
         >
-
           <EmailForm
              handleClickEmail={handleClickEmail}
              activeEmail={activeEmail}
             /> 
-
         </m.div>
     );
 }
