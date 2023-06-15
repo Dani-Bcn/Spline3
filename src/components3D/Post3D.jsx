@@ -24,14 +24,7 @@ export function Post3d(props) {
             })
         }
 
-        setTimeout(() => {
-            setActiveAnimation(false)
-            gsap.to(topRef.current.rotation, {
-                x: -120,
-                y: 0,
-                z: 0
-            })
-        }, 1000)
+      
     }, [activeAnimation])
 
     return (
@@ -45,7 +38,6 @@ export function Post3d(props) {
                 rotation={[-1.555, -0, 0.4]}
                 position={[0, -338, 0]}
             >
-
                 <planeGeometry args={[50, 50]} />
                 <MeshReflectorMaterial
                     blur={[500, 1500]}
@@ -126,7 +118,6 @@ export function Post3d(props) {
                     color={"rgb(180,180,180)"}
                     roughness={0.1}
                 />
-
             </mesh>
             <mesh
                 castShadow
@@ -200,7 +191,6 @@ export function Post3d(props) {
                     color={"rgb(120,120,120)"}
                     roughness={0.08}
                 />
-
             </mesh>
             <mesh
                 castShadow
@@ -213,7 +203,6 @@ export function Post3d(props) {
                     color={"rgb(50,50,80)"}
                     roughness={0.7}
                 />
-
             </mesh>
             <mesh
                 castShadow
@@ -226,7 +215,6 @@ export function Post3d(props) {
                     color={"rgb(12,120,180)"}
                     roughness={0.2}
                 />
-
             </mesh>
             <mesh
                 castShadow
@@ -239,7 +227,6 @@ export function Post3d(props) {
                     color={"rgb(12,120,180)"}
                     roughness={0.6}
                 />
-
             </mesh>
         </group>
 
