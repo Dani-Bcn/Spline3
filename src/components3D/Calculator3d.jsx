@@ -11,29 +11,28 @@ export function Calculator3d(props) {
   const [position, setPosition] = useState(1.5)
   const [activeCursor, setActiveCursor] = useState(false)
   const [activeInput, setActiveInput] = useState(true)
-  const [scaleNums,setScaleNums] = useState(50)
+  const [scaleNums, setScaleNums] = useState(50)
 
   useCursor(activeCursor)
 
   const handleClick = ((e) => {
 
     if (e.object.name === "off") {
-
       handleClickCalcu(),
         setNum("")
       setPosition(1.5)
       return
     }
-    setPosition(position => position - 0.333)
 
-    num.length > 6  ? setScaleNums(scaleNums -3.5): setScaleNums(50)
+    setPosition(position => position - 0.333)
+    num.length > 6 ? setScaleNums(scaleNums - 3.5) : setScaleNums(50)
     console.log(activeInput)
+
     if (e.object.name === "=") {
-     setNum("" + eval(num))
-     if(eval(num)=== 0){
-      setNum("")
-     }
-     
+      setNum("" + eval(num))
+      if (eval(num) === 0) {
+        setNum("")
+      }
       setPosition()
     } else {
       activeInput ? setNum(oldArray => [...oldArray, e.object.name].join("")) : null
@@ -42,6 +41,7 @@ export function Calculator3d(props) {
       setNum("")
       setPosition(1.5)
     }
+
   })
 
   return (
@@ -50,23 +50,23 @@ export function Calculator3d(props) {
       scale={[1, 1, 1]}
     >
       <Text3D
-      position={[-1.6,1.05,0]}
+        position={[-1.6, 1.05, 0]}
         font={font1}
         scale={[0.22, 0.35, 0.5]}
       >
         Off
         <meshStandardMaterial
-                  color="rgb(150,200,250)"
-                  roughness={8}
-                />
+          color="rgb(150,200,250)"
+          roughness={8}
+        />
       </Text3D>
       <Html >
-        <div  className="screen"
-         style={{   
-            fontSize:scaleNums
+        <div className="screen"
+          style={{
+            fontSize: scaleNums
           }}
         >
-          <h2 > {num}</h2>
+          <h4 > {num}</h4>
         </div>
       </Html>
       <group {...props} dispose={null}

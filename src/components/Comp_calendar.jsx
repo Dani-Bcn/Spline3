@@ -42,12 +42,10 @@ const Comp_calendar = (props) => {
                 ease: "easeIn"
             }}
         >
-
           <Calendar
                 handleClickCalendar={handleClickCalendar}
                 activeCalendar={activeCalendar}
             /> 
-
         </m.div>
     );
 }

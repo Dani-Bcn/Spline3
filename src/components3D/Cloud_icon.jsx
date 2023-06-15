@@ -38,7 +38,6 @@ export function Cloud_icon(props) {
       <group rotation={[0, -1.56, 0]}>
         <mesh
           castShadow
-
           geometry={nodes.Esfera_1.geometry}
           material={materials.Mat}
           material-color={"rgb(195,195,195)"}

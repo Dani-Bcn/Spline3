@@ -31,6 +31,7 @@ export function Calendar_icon(props) {
     })
 
     useCursor(hover)
+    
     return (
         <group {...props} dispose={null}
             ref={groupRef}

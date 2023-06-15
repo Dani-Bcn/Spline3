@@ -21,8 +21,7 @@ const Api_Meteo = () => {
    
 
     return (
-        <group></group>
-           
+        <group></group>          
         
     );
 }

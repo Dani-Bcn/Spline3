@@ -9,8 +9,6 @@ const Comp_calculator = (props) => {
     const { handleClickCalcu } = props
     const { activeCalcu } = props
    
-
-   
     const variantsActive = {
         open: {
             clipPath: "circle(71% at 50% 50%)",
