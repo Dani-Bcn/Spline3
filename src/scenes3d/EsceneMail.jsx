@@ -67,14 +67,15 @@ const EmailForm = (props) => {
           />
         </label>
         <br />
-       
-      </form>
-      <button className="btn-submit"
+        <button className="btn-submit"
           /*   type="submit" */
           onClick={() => funcSend()}
         >
           Send
         </button>
+
+      </form>
+
 
       <section>
         <Canvas
