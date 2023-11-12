@@ -12,6 +12,7 @@ const SceneAbout = (props) => {
     const { handleClick } = props
     const { handleClickCalendar } = props
     const { handleClickCalcu } = props
+    // eslint-disable-next-line react/prop-types
     const {handleClickEmail} = props
 
     return (

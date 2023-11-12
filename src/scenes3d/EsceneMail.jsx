@@ -73,10 +73,7 @@ const EmailForm = (props) => {
         >
           Send
         </button>
-
       </form>
-
-
       <section>
         <Canvas
           style={{
@@ -87,9 +84,7 @@ const EmailForm = (props) => {
           <Environment
             preset='city'
           />
-          <pointLight
-
-          />
+       
           <PerspectiveCamera
             makeDefault
             fov={1}

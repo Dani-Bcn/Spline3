@@ -13,8 +13,9 @@ export function Back_logo(props) {
 
     
   useFrame((state, delta) => {
-   
+    console.log(state.mouse.x)
       gsap.to(bodyRef.current.rotation, {
+       
         x: state.mouse.x / 4,
         y: state.mouse.y / 4
       })
