@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Text3D, useGLTF, useCursor, Html } from "@react-three/drei";
+import { Text3D, useGLTF, useCursor, Html, OrbitControls } from "@react-three/drei";
 import font1 from '../fonts/Bruno.json'
 
 export function Calculator3d(props) {
@@ -48,6 +48,7 @@ export function Calculator3d(props) {
       rotation={[0, 0, 0]}
       scale={[1, 1, 1]}
     >
+      <OrbitControls/>
       <Text3D
         position={[-1.6, 1.05, 0]}
         font={font1}

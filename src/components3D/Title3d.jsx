@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useGLTF, useScroll, useTexture } from "@react-three/drei";
+import { SpotLight, useGLTF, useScroll, useTexture } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 import { gsap } from "gsap";
@@ -56,6 +56,7 @@ export function Title3d(props) {
       scale={0.0013}
       position={[0, 0.07, -54.7]}
     >
+     
       <pointLight
         position={[0, -50, 53]}
         shadow-bias={0.0001}
@@ -64,14 +65,14 @@ export function Title3d(props) {
         intensity={1}
         shadow-mapSize={2048}
       />
+     
       <group position={[-273, 0, 0]}>
         <mesh
           ref={dRef}
           castShadow
           geometry={nodes.D.geometry}
         >
-          <meshStandardMaterial
-        
+          <meshStandardMaterial        
             color={"rgb(250,200,120)"}
             metalness={0.3}
           />

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Text, useGLTF, useCursor, useTexture, RoundedBox, Html } from "@react-three/drei";
+import { Text, useGLTF, useCursor, useTexture, RoundedBox, Html, SpotLight } from "@react-three/drei";
 import { useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
 import img_whats from '/img/whatsapp.svg'
@@ -139,6 +139,7 @@ export function Mobile_prueba(props) {
       onPointerOut={() => setHovered(false)}
       onClick={(e) => handleWhats(e)}
     >
+       
       <group
         castShadow
         ref={timeRef}
@@ -160,6 +161,7 @@ export function Mobile_prueba(props) {
         ref={iconsRef}
         position={[-0.25, -3, 0.1]}
       >
+       
         <mesh
         ref={homeRef}
           onPointerOver={() => setHovered(true)}

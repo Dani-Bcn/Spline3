@@ -1,78 +1,78 @@
 import React, { useRef } from "react";
-import { Environment, SpotLight, useGLTF } from "@react-three/drei";
-
+import {
+  Environment,
+  OrbitControls,
+  SpotLight,
+  useGLTF,
+} from "@react-three/drei";
 
 export function Lamp3d(props) {
   const { nodes, materials } = useGLTF("/Lamp.glb");
   return (
-    <group 
-      scale={0.5}
-    {...props} dispose={null}>
-
+    <group {...props} dispose={null}     
+    scale={0.005} 
+    rotation={[0,-10,0]}
+    position={[-0.7, -1.335, -55]}>
+      <spotLight 
+       
+      intensity={10}
       
-<spotLight
-          intensity={0.5}
-            position={[0,0,10]}
-          />
+      position={[0, 0, 0]} />
 
-    
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Tube1.geometry}
         material={materials.Mat}
-        position={[-0.039, 0.854, 0]}
-        rotation={[0, 0, -0.006]}
+        position={[0, 0.9, 0]}
       />
+
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Sphere.geometry}
         material={materials["Mat.1"]}
-        position={[10.203, 70.775, 0]}
+        position={[10.2, 70.8, 0]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Tube.geometry}
         material={materials.Mat}
-        position={[8.609, 69.552, 0]}
-        rotation={[0, 0, -0.87]}
+        position={[8.6, 69.6, 0]}
+        rotation={[0, 0, -0.9]}
       />
-      <group position={[0, 21.962, 0]}>
+      <group position={[0, 22, 0]}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Sweep_2.geometry}
           material={materials["Mat.3"]}
-          position={[0, -21.962, 0]}
+          position={[0, -22, 0]}
         />
       </group>
-      <group
-        position={[0.245, -1.262, -2.207]}
-        rotation={[-Math.PI, 0.014, -Math.PI]}
-      >
+      <group position={[0.2, -1.3, -2.2]} rotation={[-Math.PI, 0, -Math.PI]}>
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cubo1.geometry}
           material={materials["Mat.1"]}
-          position={[0.64, 2.155, 4.816]}
-          rotation={[0.008, 0.022, -0.146]}
+          position={[0.6, 2.2, 4.8]}
+          rotation={[0, 0, -0.1]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cubo.geometry}
           material={materials.Mat}
-          position={[0.555, -0.042, 4.813]}
+          position={[0.6, 0, 4.8]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Cilindro.geometry}
           material={materials["Mat.1"]}
-          position={[0.392, 0.184, -2.142]}
+          position={[0.4, 0.2, -2.1]}
         />
       </group>
       <mesh
@@ -80,8 +80,8 @@ export function Lamp3d(props) {
         receiveShadow
         geometry={nodes.Lathe.geometry}
         material={materials.Mat}
-        position={[22.835, 68.276, 0]}
-        rotation={[0, 0, 1.363]}
+        position={[22.8, 68.3, 0]}
+        rotation={[0, 0, 1.4]}
       />
     </group>
   );

@@ -13,6 +13,7 @@ import { gsap } from "gsap";
 import { useFrame ,} from "@react-three/fiber";
 import { useNavigate } from "react-router-dom";
 import { Environment } from "@react-three/drei";
+import { DirectionalLight, Light } from "three";
 
 export function Menu_home(props) {
   const [hover, setHover] = useState(false);
@@ -109,7 +110,11 @@ export function Menu_home(props) {
           onPointerOut={() => hoverAboutOff()}
         >
          
+         <Environment
+         preset="city"
          
+         />
+       
 
           <Text3D
             position={[-56, 105, -1.57]}
@@ -135,10 +140,7 @@ export function Menu_home(props) {
             <meshStandardMaterial color={"rgb(85,85,150)"} roughness={0.8} />
             Portfolio
           </Text3D>
-          <SpotLight
-          intensity={5}
-            position={[0,0,10]}
-          />
+        
           <mesh
             ref={aboutRef}
             castShadow
