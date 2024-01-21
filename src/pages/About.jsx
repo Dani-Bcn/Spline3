@@ -41,7 +41,7 @@ const About = () => {
                 handleClickCalcu={handleClickCalcu}
                 handleClickEmail={handleClickEmail}
             />
-            <Comp_calendar
+        <Comp_calendar
                 activeCalendar={activeCalendar}
                 handleClickCalendar={handleClickCalendar} />
             <m.div className='back-about'
@@ -55,7 +55,7 @@ const About = () => {
                     }
                 }}
             ></m.div>
-            <m.article className='article-about'
+           <m.article className='article-about'
                 animate={{
                     opacity: [0, 0, 0, 0, 1],
                     top: [850, -100],
@@ -73,7 +73,8 @@ const About = () => {
                handleClickEmail={handleClickEmail}
                 activeEmail={activeEmail}
             />
-            <Comp_calculator handleClickCalcu={handleClickCalcu} activeCalcu={activeCalcu} />
+            <Comp_calculator handleClickCalcu={handleClickCalcu} activeCalcu={activeCalcu} /> 
+             
         </m.main>
     );
 }

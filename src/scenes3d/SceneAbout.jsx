@@ -19,24 +19,24 @@ const SceneAbout = (props) => {
         <Canvas>
             <Environment
                 preset='city'
-            />
+            /> 
             <PerspectiveCamera
                 ref={cameraRef}
                 makeDefault
                 position={[0, 0, 50]}
                 fov={10}
             />
-            <spotLight
+             <spotLight
                 intensity={1}
                 position={[-50, 0, 100]}
-            />
+            /> 
             <Mobile_prueba
                 handleClick={handleClick}
                 handleClickCalendar={handleClickCalendar}
                 handleClickCalcu={handleClickCalcu}
                 handleClickEmail={handleClickEmail}
             >
-            </Mobile_prueba>
+            </Mobile_prueba> 
         </Canvas>
     );
 }

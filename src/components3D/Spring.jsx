@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { Environment, useGLTF, useScroll } from "@react-three/drei";
-import { Plant2 } from "./Plant2";
+import { Environment, useCursor, useGLTF, useScroll } from "@react-three/drei";
+
 import { useFrame } from "@react-three/fiber";
 
 export function Spring(props) {
@@ -8,6 +8,7 @@ export function Spring(props) {
 
   const solRef = useRef()
   const data = useScroll()
+  
 
   useFrame(() => {
     solRef.current.rotation.z += 0.0009
@@ -21,7 +22,7 @@ export function Spring(props) {
 
       rotation={[0, -0.1, 0]}
     >
-      <Plant2 />
+     
       <Environment
         preset="city"
       />
@@ -749,7 +750,7 @@ export function Spring(props) {
 
         />
       </group>
-      <group position={[0, 7.474, 0.853]} rotation={[0, 0, -Math.PI / 2]}>
+    {/*   <group position={[0, 7.474, 0.853]} rotation={[0, 0, -Math.PI / 2]}>
         <mesh
 
           geometry={nodes.Extrude_8.geometry}
@@ -758,7 +759,7 @@ export function Spring(props) {
           material-metalness={1.5}
           material-roughness={0.7}
         />
-      </group>
+      </group> */}
       <mesh
         ref={solRef}
         scale={[8, 8, 4]}
