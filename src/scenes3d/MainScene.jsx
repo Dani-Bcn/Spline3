@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { Environment, PerspectiveCamera, OrbitControls, RoundedBox, Scroll, ScrollControls, useScroll, SpotLight } from '@react-three/drei';
+import { Environment, PerspectiveCamera, OrbitControls, RoundedBox, Scroll, ScrollControls, useScroll } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import React, { useRef, useState, Suspense } from 'react';
 
@@ -38,19 +38,15 @@ const MainScene = () => {
             <Canvas
                 shadows
             >
-     <pointLight
-        position={[0, -50, 53]}
-        shadow-bias={0.0001}
-        decay={1}
-        distance={1}
-        intensity={1}
-        shadow-mapSize={2048}
-      />
+               <Environment
+                preset='city'
+            
+               />
+            
                 <ScrollControls
                     pages={2}
                     damping={0.5}
                 >
-                   
                     <Scroll>
                         <CustomCamera />
                         <RoundedBox
@@ -60,11 +56,11 @@ const MainScene = () => {
                         <Calendar_icon />
                         <SceneMeteo />
                         <Menu_home />
-                   <Lamp3d/>
+                    <Lamp3d />  
                         <Dados_links />
                         <Plant />
                         <Back_logo/>
-                   
+                        <Lamp3d/>
                     </Scroll>
                 </ScrollControls>
             </Canvas>

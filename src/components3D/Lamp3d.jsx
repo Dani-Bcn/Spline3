@@ -5,20 +5,23 @@ import {
   SpotLight,
   useGLTF,
 } from "@react-three/drei";
+import { PointLight } from "three";
 
 export function Lamp3d(props) {
   const { nodes, materials } = useGLTF("/Lamp.glb");
   return (
-    <group {...props} dispose={null}     
-    scale={0.005} 
-    rotation={[0,-10,0]}
-    position={[-0.7, -1.335, -55]}>
-      <spotLight 
-       
-      intensity={10}
-      
-      position={[0, 0, 0]} />
-
+    <group
+      {...props}
+      dispose={null}
+      scale={0.005}
+      rotation={[0, 0, 0]}
+      position={[-0.7, -1.335, -55]}
+    >
+      <group 
+      position={[20,50,-200]}
+      rotation={[-5,5,5]}>
+        <pointLight/>
+      </group>
       <mesh
         castShadow
         receiveShadow
